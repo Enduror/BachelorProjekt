@@ -41,3 +41,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Ground
+    uniqueID: 2440174767
+    locked: 0
+  - name: Interactables
+    uniqueID: 2658321249
+    locked: 0
+  - name: Walls
+    uniqueID: 1149525339
+    locked: 0
+  - name: Player
+    uniqueID: 626202191
+    locked: 0
+  - name: Wearables
+    uniqueID: 100577633
+    locked: 0
