@@ -2,62 +2,52 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraZoomManager : MonoBehaviour {
+public class CameraZoomManager : MonoBehaviour
+{
 
-    public Transform player;
+    public GameObject player;
     public Camera cam;
-
+    public int targetZoom;
     public float currentSize;
-    public int smallSize;
-    public int bigSize;
+    public int startSize;
 
-    public float zoomSpeed;
 
-    float lerpTime = 0.6f;
-    float currentLerpTime;
-    
+    public bool enteredFirst;
 
     private void Start()
     {
+        currentSize = startSize;
+        targetZoom = startSize;
         cam = Camera.main;
-        
+        player = GameObject.FindGameObjectWithTag("Player");       
     }
 
     public void Update()
     {
-        cam.orthographicSize = currentSize;
-        if (transform.position.y > player.position.y)
-        {
-              Zoom(bigSize);
-        }
-        else
-        {
-            Zoom(smallSize);
-           
-        }
+        Zoom(targetZoom);
     }
 
-    public void Zoom(int targetZoom)
+    public void Zoom(int pTargetZoom)
     {
-        if (currentSize != targetZoom)
+        if (currentSize != pTargetZoom)
         {
-            if (targetZoom > currentSize)
+            if (pTargetZoom > currentSize)
             {
-                currentSize += Time.deltaTime;
+                currentSize += Time.deltaTime+0.05f;
             }
 
-            if (targetZoom < currentSize)
+            if (pTargetZoom < currentSize)
             {
-                currentSize += -(Time.deltaTime);
+                currentSize += -(Time.deltaTime+0.05f);
             }
+            cam.orthographicSize = currentSize;
         }
-        
     }
-
-
-
-
-
-
-
 }
+
+
+
+
+
+
+
