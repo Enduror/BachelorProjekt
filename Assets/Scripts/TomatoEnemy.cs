@@ -8,6 +8,7 @@ public class TomatoEnemy : MonoBehaviour
     //TomatoMove
     public float moveSpeed;
     public float chaseRange;
+    public float minChaseRange;
     public GameObject player;
     public PlayerController playerController;
    
@@ -43,7 +44,7 @@ public class TomatoEnemy : MonoBehaviour
     {
         if (playerController.isAlive)
         {
-            if (Vector2.Distance(transform.position, player.transform.position) > 1 && Vector2.Distance(transform.position, player.transform.position) < 8)
+            if (Vector2.Distance(transform.position, player.transform.position) > minChaseRange && Vector2.Distance(transform.position, player.transform.position) < chaseRange)
             {
                 transform.position = Vector2.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
             }

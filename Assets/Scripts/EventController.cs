@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EventController : MonoBehaviour {
 
@@ -16,10 +17,12 @@ public class EventController : MonoBehaviour {
     public GameObject WeaponExit;
     public GameObject weaponPodium;
     public MessageBord messageBoard;
+    public SpriteMask devMask;
 
     private void Awake()
     {
         player = FindObjectOfType<PlayerController>();
+        Destroy(devMask);
     }
 
     void Update()
@@ -45,6 +48,16 @@ public class EventController : MonoBehaviour {
     public void AwakeWeapon()
     {
         player.ActivateWeapon();
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void EndGame()
+    {
+        Application.Quit();
     }
 
 

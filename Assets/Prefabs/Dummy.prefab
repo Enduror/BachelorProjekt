@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4513013627364394}
   - component: {fileID: 50625423660610402}
-  - component: {fileID: 114921487631038538}
   - component: {fileID: 114963492647501086}
   m_Layer: 9
   m_Name: Dummy
@@ -53,8 +52,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1470097547469472}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.192, y: -0.23499997, z: -0.17599997}
-  m_LocalScale: {x: 0.92201203, y: 0.92201185, z: 0.92201185}
+  m_LocalPosition: {x: 92, y: 97.28, z: -0.17599997}
+  m_LocalScale: {x: 81.73319, y: -83.7765, z: 81.73317}
   m_Children:
   - {fileID: 4761647117557526}
   m_Father: {fileID: 0}
@@ -118,18 +117,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.09873241, y: 0.065277904}
   m_EdgeRadius: 0
---- !u!114 &114921487631038538
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1470097547469472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bae35235c7048674d8039e0e4f8553cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthSystem: {fileID: 0}
 --- !u!114 &114963492647501086
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -143,6 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   startHealth: 3
+  ec: {fileID: 0}
 --- !u!212 &212681265289653636
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -175,8 +163,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 626202191
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

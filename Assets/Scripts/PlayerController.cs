@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour {
         {
             if (timeBtwAttack <= 0)
             {
-                if (Input.GetMouseButtonDown(0) && hasWeapon == true)
+                if (Input.GetMouseButton(0) && hasWeapon == true)
                 {
 
                     camAnim.SetTrigger("shake");

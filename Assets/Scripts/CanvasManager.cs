@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CanvasManager : MonoBehaviour {
 
@@ -9,7 +10,10 @@ public class CanvasManager : MonoBehaviour {
     public GameObject hearthContrainer;
     public Transform spawnHealthPoint;
     public Vector3 currentLocation;
-    public PlayerController playerController;
+    public PlayerController player;
+
+    public GameObject restartButton;
+    public GameObject QuitButton;
 
     public Image[] hearts;
     public Sprite fullHearts;
@@ -25,7 +29,7 @@ public class CanvasManager : MonoBehaviour {
     {
         for (int i = 0; i < hearts.Length; i++)
         {
-            if (i < playerController.health)
+            if (i < player.health)
             {
                 hearts[i].enabled = true;
             }
@@ -35,9 +39,13 @@ public class CanvasManager : MonoBehaviour {
             }
         }
 
+        if (!player.isAlive)
+        {
+            restartButton.SetActive(true);
+            QuitButton.SetActive(true);
+        }
+
     }
 
-
-
-
+    
 }
