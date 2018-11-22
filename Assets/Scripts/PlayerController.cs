@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour {
 	public float moveSpeed;
     public Rigidbody2D rb;
     public Vector3 moveVector3;
+    public bool isMoving;
+    public Animator realPlayerAnim;
+
 
     //PlayerDirection
     public float offset;
@@ -31,8 +34,9 @@ public class PlayerController : MonoBehaviour {
     //Player Health and Status.
     public int health;
     public int startHealth;
-    
-   
+    public GameObject playerBlood;
+
+
 
     private void Awake()
     {
@@ -62,8 +66,17 @@ public class PlayerController : MonoBehaviour {
     {
         if (isAlive)
         {
+            
             var x = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
             var y = Input.GetAxis("Vertical") * Time.deltaTime * moveSpeed;
+            if (x != 0 || y != 0)
+            {               
+                realPlayerAnim.SetBool("isRunning",true);
+            }
+            else
+            {               
+                realPlayerAnim.SetBool("isRunning", false);                
+            }
             transform.Translate(x, y, 0);
             moveVector3 = new Vector3(x, y, 0);
             rb.MovePosition(new Vector2((transform.position.x + moveVector3.x * moveSpeed * Time.deltaTime), (transform.position.y + moveVector3.y * moveSpeed * Time.deltaTime)));
@@ -113,13 +126,14 @@ public class PlayerController : MonoBehaviour {
     public void TakeDamage(int damage)
     {
         health -= damage;
+        Destroy(Instantiate(playerBlood, transform.position, transform.rotation), 2);
         if (health <= 0)
         {
             //GetComponentInChildren<SpriteRenderer>().enabled = false;
 
             DisableChildrenOnDeath();
             GetComponentInChildren<Rigidbody2D>().simulated = false;
-
+            
             isAlive = false;
                
         }

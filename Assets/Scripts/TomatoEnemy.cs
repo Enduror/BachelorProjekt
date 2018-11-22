@@ -23,6 +23,7 @@ public class TomatoEnemy : MonoBehaviour
 
 
     public Rigidbody2D rb;
+    public Animator animator;
 
 
     // Use this for initialization
@@ -31,7 +32,7 @@ public class TomatoEnemy : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
         playerController = FindObjectOfType<PlayerController>();
-
+        animator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -46,8 +47,13 @@ public class TomatoEnemy : MonoBehaviour
         {
             if (Vector2.Distance(transform.position, player.transform.position) > minChaseRange && Vector2.Distance(transform.position, player.transform.position) < chaseRange)
             {
+                animator.SetBool("isRunning", true);
                 transform.position = Vector2.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
             }
+        }
+        else
+        {
+            animator.SetBool("isRunning", false);
         }
     }
 
