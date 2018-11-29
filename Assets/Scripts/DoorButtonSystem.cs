@@ -7,12 +7,19 @@ public class DoorButtonSystem : MonoBehaviour {
     public GameObject door;
     public TriggerPlate[] steppingStones;
     public GameObject[] dummys;
-      
+    public Animator anim;
+
+
+    public void Start()
+    {
+        anim = door.GetComponentInChildren<Animator>();
+    }
     void Update()
     {
         if (IsAllPressed()&&IsAllKilled())
         {
-            Destroy(door);
+            anim.SetTrigger("openDoor");
+            Destroy(door,2);
             Destroy(this);
         }
     }

@@ -11,24 +11,15 @@ public class PlayerController : MonoBehaviour {
 	public float moveSpeed;
     public Rigidbody2D rb;
     public Vector3 moveVector3;
-    public bool isMoving;
     public Animator realPlayerAnim;
-
+    private Vector2 playerDirection2D;       
 
     //PlayerDirection
     public float offset;
     public GameObject Weapon;
-
-    //PlayerAttacking
-    public float timeBtwAttack;
-    public float startTimeBtwAttack;
-    public Transform attackPosition;
-    public float range;
-    public LayerMask whatIsEnemy;
-    public int damage;
-    public GameObject dummyBlood;
-    public Animator camAnim;
-    public Animator playerAnim;
+    
+    //PlayerAttack
+    
     public bool hasWeapon;
 
     //Player Health and Status.
@@ -41,6 +32,7 @@ public class PlayerController : MonoBehaviour {
     private void Awake()
     {
         health = startHealth;
+        
     }
 
     private void Start()
@@ -57,8 +49,7 @@ public class PlayerController : MonoBehaviour {
     private void FixedUpdate()
     {
         PlayerMovement();
-        PlayerDirection();
-        PlayerAttack();
+        PlayerDirection();        
 
     }
 
@@ -79,7 +70,8 @@ public class PlayerController : MonoBehaviour {
             }
             transform.Translate(x, y, 0);
             moveVector3 = new Vector3(x, y, 0);
-            rb.MovePosition(new Vector2((transform.position.x + moveVector3.x * moveSpeed * Time.deltaTime), (transform.position.y + moveVector3.y * moveSpeed * Time.deltaTime)));
+            playerDirection2D = new Vector2((transform.position.x + moveVector3.x * moveSpeed * Time.deltaTime), (transform.position.y + moveVector3.y * moveSpeed * Time.deltaTime));
+            rb.MovePosition(playerDirection2D);
         }
     }
 
@@ -88,40 +80,40 @@ public class PlayerController : MonoBehaviour {
     {
         Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-        Weapon.transform.rotation = Quaternion.Euler(0f, 0f, rotZ);
+        Weapon.transform.rotation = Quaternion.Euler(0f, 0f, rotZ+offset);
     }
 
+  
+
+    //public void PlayerAttack()
+    //{
+    //    if (isAlive)
+    //    {
+    //        if (timeBtwAttack <= 0)
+    //        {
+    //            if (Input.GetMouseButton(0) && hasWeapon == true)
+    //            {
+
+    //                camAnim.SetTrigger("shake");
+    //                playerAnim.SetTrigger("attack");
 
 
-    public void PlayerAttack()
-    {
-        if (isAlive)
-        {
-            if (timeBtwAttack <= 0)
-            {
-                if (Input.GetMouseButton(0) && hasWeapon == true)
-                {
-
-                    camAnim.SetTrigger("shake");
-                    playerAnim.SetTrigger("attack");
-
-
-                    Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPosition.position, range, whatIsEnemy);
-                    for (int i = 0; i < enemiesToDamage.Length; i++)
-                    {
-                        enemiesToDamage[i].GetComponentInParent<HealthSystem>().TakeDamage(damage);
-                        Destroy(Instantiate(dummyBlood, enemiesToDamage[i].transform.position, enemiesToDamage[i].transform.rotation), 2);
-                    }
-                    timeBtwAttack = startTimeBtwAttack;
-                }
-            }
-            else
-            {
-                timeBtwAttack -= Time.deltaTime;
-            }
-        }
+    //                //Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPosition.position, range, whatIsEnemy);
+    //                //for (int i = 0; i < enemiesToDamage.Length; i++)
+    //                //{
+    //                //    enemiesToDamage[i].GetComponentInParent<HealthSystem>().TakeDamage(damage);
+    //                //    Destroy(Instantiate(dummyBlood, enemiesToDamage[i].transform.position, enemiesToDamage[i].transform.rotation), 2);
+    //                //}
+    //                timeBtwAttack = startTimeBtwAttack;
+    //            }
+    //        }
+    //        else
+    //        {
+    //            timeBtwAttack -= Time.deltaTime;
+    //        }
+    //    }
         
-    }    
+    //}    
 
     public void TakeDamage(int damage)
     {
@@ -134,8 +126,7 @@ public class PlayerController : MonoBehaviour {
             DisableChildrenOnDeath();
             GetComponentInChildren<Rigidbody2D>().simulated = false;
             
-            isAlive = false;
-               
+            isAlive = false;               
         }
     }
 
@@ -145,15 +136,7 @@ public class PlayerController : MonoBehaviour {
         {
             child.gameObject.SetActive(false);
         }
-    }
-
-
-
-    private void OnDrawGizmosSelected()
-    {      
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(attackPosition.position,range);
-    }
+    }  
 
     public void ActivateWeapon()
     {

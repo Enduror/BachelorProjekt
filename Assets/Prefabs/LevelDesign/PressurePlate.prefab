@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212987872416508310}
   - component: {fileID: 114379013437075596}
   - component: {fileID: 61488172735641258}
+  - component: {fileID: 95534812679984930}
   m_Layer: 0
   m_Name: PressurePlate
   m_TagString: Untagged
@@ -45,7 +46,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7.38, y: 8.49}
+    oldSize: {x: 5.69, y: 7.41}
     newSize: {x: 7.38, y: 8.49}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -54,6 +55,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7.38, y: 8.49}
   m_EdgeRadius: 0
+--- !u!95 &95534812679984930
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1611747108264124}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6fa69e78c36701446a6d91bc3add401e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114379013437075596
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -65,7 +84,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf30ad1fd4033ec4eb2bce922d661452, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pressedColor: {r: 0, g: 0.60294116, b: 0.004158181, a: 1}
+  anim: {fileID: 0}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
   isPressed: 0
 --- !u!212 &212987872416508310
 SpriteRenderer:
@@ -102,7 +122,7 @@ SpriteRenderer:
   m_SortingLayerID: -1636646047
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b7b8a8b437aa2fa4c94df5bebb6f79c4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ba9c77000c7bd0040b828ed21a7e37e0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -119,15 +139,15 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1611747108264124}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.46586, y: 0.46586, z: 0.46586}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -76.13145, y: 159.16031}
+  m_AnchoredPosition: {x: -30.099998, y: 34.399994}
   m_SizeDelta: {x: 7.38, y: 8.49}
   m_Pivot: {x: 0.5, y: 0.5}
