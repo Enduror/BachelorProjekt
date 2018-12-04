@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class FireSide : MonoBehaviour {
 
+    public GameObject weaponFire;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
-            collision.GetComponent<PlayerController>().TakeDamage(1);
+            collision.GetComponentInParent<PlayerController>().TakeDamage(1);
         }
         if(collision.tag== "Weapon")
         {
-           // collision.GetComponent<WeaponScript>().Ignite();
+            weaponFire.SetActive(true);
         }
     }
 

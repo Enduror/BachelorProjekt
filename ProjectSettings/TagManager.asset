@@ -6,6 +6,7 @@ TagManager:
   tags:
   - SpawnPoint
   - MessageBox
+  - Weapon
   layers:
   - Default
   - TransparentFX
