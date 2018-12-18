@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Cover.unity
+    guid: 0d2c01a3d5de7704da2b2b35969bfd89
+  - enabled: 1
+    path: Assets/Scenes/BartleTest.unity
+    guid: 600dd3293f1c81e43a6c783eb93fd6ce
+  - enabled: 1
     path: Assets/Scenes/TutorialScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
-    path: Assets/Scenes/Level1.unity
-    guid: d0791f138fb348647bdd56491134ee48
   m_configObjects: {}

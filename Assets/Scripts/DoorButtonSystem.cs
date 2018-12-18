@@ -8,6 +8,8 @@ public class DoorButtonSystem : MonoBehaviour {
     public TriggerPlate[] steppingStones;
     public GameObject[] dummys;
     public Animator anim;
+    
+    
 
 
     public void Start()
@@ -18,6 +20,7 @@ public class DoorButtonSystem : MonoBehaviour {
     {
         if (IsAllPressed()&&IsAllKilled())
         {
+            door.GetComponent<Collider2D>().enabled = false;
             anim.SetTrigger("openDoor");
             Destroy(door,2);
             Destroy(this);

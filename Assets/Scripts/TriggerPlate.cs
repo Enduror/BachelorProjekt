@@ -17,6 +17,7 @@ public class TriggerPlate : MonoBehaviour {
     {
         if (collision.tag == "Player")
         {
+            
             anim.SetTrigger("pop");
             GetComponent<SpriteRenderer>().color = pressedColor;
             isPressed = true;

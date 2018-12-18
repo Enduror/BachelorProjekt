@@ -147,7 +147,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -123, y: 70}
+  m_AnchoredPosition: {x: 3, y: 69}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &29991732
@@ -188,7 +188,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 29991733}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 583974328}
+        m_MethodName: EndQuiz
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &29991733
@@ -450,8 +461,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c78e213f16835249b871c6986a5b5a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  answerText: Ja sicher Achiever!
-  playerType: Achiever
+  answerText: Weitere antworten
+  playerType: 
   isChecked: 0
 --- !u!1 &298124480
 GameObject:
@@ -760,7 +771,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Last Question
+  m_Text: 'EndQuiz
+
 
 '
 --- !u!222 &397376051
@@ -896,6 +908,7 @@ RectTransform:
   - {fileID: 1366043271}
   - {fileID: 1063006610}
   - {fileID: 1603558073}
+  - {fileID: 727550115}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -920,8 +933,11 @@ MonoBehaviour:
   - {fileID: 1366043272}
   - {fileID: 1063006611}
   - {fileID: 1603558072}
+  - {fileID: 727550116}
   currentQuestion: 0
   toggleGroup: {fileID: 496686312}
+  nextButton: {fileID: 993674925}
+  endQuizButton: {fileID: 29991730}
   Answer1: {fileID: 1503405360}
   Answer2: {fileID: 716499120}
   Answer3: {fileID: 2045781472}
@@ -973,8 +989,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c78e213f16835249b871c6986a5b5a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  answerText: Ja sicher Explorer!
-  playerType: Explorer
+  answerText: Klar warum nicht das feld
+  playerType: 
   isChecked: 0
 --- !u!1 &716499118
 GameObject:
@@ -1102,9 +1118,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c78e213f16835249b871c6986a5b5a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  answerText: Ja sicher Killer!
-  playerType: Killer
+  answerText: Recht und ordnung
+  playerType: 
   isChecked: 0
+--- !u!1 &727550114
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 727550115}
+  - component: {fileID: 727550116}
+  m_Layer: 5
+  m_Name: Ende
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &727550115
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 727550114}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.99999666, y: 0.99999666, z: 0.99999666}
+  m_Children:
+  - {fileID: 1417440990}
+  - {fileID: 1340354199}
+  - {fileID: 2073913773}
+  m_Father: {fileID: 583974327}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.00012207031, y: 0.000091552734}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &727550116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 727550114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77dc48bbb17528146a9179c87514fd41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  testmanager: {fileID: 0}
+  answerArray:
+  - {fileID: 1417440991}
+  - {fileID: 1340354200}
+  - {fileID: 2073913774}
+  questionText: Ende
 --- !u!1 &829367473
 GameObject:
   m_ObjectHideFlags: 0
@@ -1619,6 +1689,54 @@ MonoBehaviour:
   answerText: Killer
   playerType: Killer
   isChecked: 0
+--- !u!1 &1340354198
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1340354199}
+  - component: {fileID: 1340354200}
+  m_Layer: 5
+  m_Name: Answers2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1340354199
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1340354198}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.99999666, y: 0.99999666, z: 0.99999666}
+  m_Children: []
+  m_Father: {fileID: 727550115}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.00012207031, y: 0.000030517578}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1340354200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1340354198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c78e213f16835249b871c6986a5b5a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  answerText: 
+  playerType: 
+  isChecked: 0
 --- !u!1 &1366043270
 GameObject:
   m_ObjectHideFlags: 0
@@ -1748,6 +1866,54 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1381254807}
   m_CullTransparentMesh: 0
+--- !u!1 &1417440989
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1417440990}
+  - component: {fileID: 1417440991}
+  m_Layer: 5
+  m_Name: Answers1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1417440990
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1417440989}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 727550115}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1417440991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1417440989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c78e213f16835249b871c6986a5b5a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  answerText: 
+  playerType: 
+  isChecked: 0
 --- !u!1 &1503405358
 GameObject:
   m_ObjectHideFlags: 0
@@ -1857,8 +2023,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   testmanager: {fileID: 0}
-  answerArray: []
-  questionText: Its over
+  answerArray:
+  - {fileID: 199622512}
+  - {fileID: 671690053}
+  - {fileID: 719558143}
+  questionText: LetzteFrage
 --- !u!224 &1603558073
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2411,3 +2580,51 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &2073913772
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2073913773}
+  - component: {fileID: 2073913774}
+  m_Layer: 5
+  m_Name: Answers3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2073913773
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2073913772}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.99999666, y: 0.99999666, z: 0.99999666}
+  m_Children: []
+  m_Father: {fileID: 727550115}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.00012207031, y: 0.000091552734}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2073913774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2073913772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c78e213f16835249b871c6986a5b5a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  answerText: 
+  playerType: 
+  isChecked: 0

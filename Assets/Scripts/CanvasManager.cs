@@ -12,6 +12,10 @@ public class CanvasManager : MonoBehaviour {
     public Vector3 currentLocation;
     public PlayerController player;
 
+    // achievmentPanel 
+    public Animator anim;
+
+
     public GameObject restartButton;
     public GameObject QuitButton;
 
@@ -45,6 +49,11 @@ public class CanvasManager : MonoBehaviour {
             QuitButton.SetActive(true);
         }
 
+    }
+
+    public void AchievementPanel()
+    {
+        anim.SetTrigger("Panel");
     }
 
     

@@ -5,7 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class EventController : MonoBehaviour {
 
-  
+
+
+
+    public Texture2D cursorTexture;
+    private Vector2 cursorHotspot;
+
     public int dummyCounter;
     public int dummyQuest;
 
@@ -25,25 +30,22 @@ public class EventController : MonoBehaviour {
         Destroy(devMask);
     }
 
+    public void Start()
+    {
+        cursorHotspot = new Vector2(cursorTexture.width / 2, cursorTexture.height / 2);
+        Cursor.SetCursor(cursorTexture, cursorHotspot, CursorMode.Auto);
+    }
+
     void Update()
     {
-        CheckForEvents();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Debug.Log("Quit dat Shit");
+            Application.Quit();
+        }
     }
 
-    public void CheckForEvents()
-    {
-        if (dummyCounter == dummyQuest)
-        {           
-            Destroy(WeaponExit);
-           
-        }
-
-        if (pressedPlatesCounter == trainingRoomQuest)
-        {            
-            Destroy(TrainingRoomExit);
-        }
-      
-    }
+  
 
     public void AwakeWeapon()
     {
@@ -61,6 +63,25 @@ public class EventController : MonoBehaviour {
     }
 
 
+    public void MouseScript()
+    {
 
+        // initialize mouse with a new texture with the
+        // hotspot set to the middle of the texture
+        // (don't forget to set the texture in the inspector
+        
+            
+       
+
+        // To check where your mouse is really pointing
+        // track the mouse position in you update function
+                
+            Vector3 currentMouse = Input.mousePosition;
+            Ray ray = Camera.main.ScreenPointToRay(currentMouse);
+            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
+            Debug.DrawLine(ray.origin, hit.point);
+        
+    
+}
 
 }
