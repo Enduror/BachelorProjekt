@@ -11,9 +11,11 @@ public class CanvasManager : MonoBehaviour {
     public Transform spawnHealthPoint;
     public Vector3 currentLocation;
     public PlayerController player;
+   
 
     // achievmentPanel 
     public Animator anim;
+    public GameObject achievementPanel;
 
 
     public GameObject restartButton;
@@ -27,6 +29,10 @@ public class CanvasManager : MonoBehaviour {
     private void Awake()
     {
         transitionScreen.SetActive(true);
+    }
+    public void Start()
+    {
+        //achievementPanel.SetActiv(true);
     }
 
     private void Update()
