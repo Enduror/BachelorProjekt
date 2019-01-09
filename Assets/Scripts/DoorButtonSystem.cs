@@ -10,8 +10,6 @@ public class DoorButtonSystem : MonoBehaviour {
     public Animator anim;
     
     
-
-
     public void Start()
     {
         anim = door.GetComponentInChildren<Animator>();
@@ -38,6 +36,7 @@ public class DoorButtonSystem : MonoBehaviour {
         }
         return true;
     }
+
     private bool IsAllKilled()
     {
         for (int i = 0; i < dummys.Length; i++)

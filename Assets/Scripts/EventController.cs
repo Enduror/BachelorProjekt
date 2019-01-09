@@ -7,7 +7,7 @@ public class EventController : MonoBehaviour {
 
 
 
-
+    public AudioManager audioManager;
     public Texture2D cursorTexture;
     private Vector2 cursorHotspot;
 
@@ -17,18 +17,50 @@ public class EventController : MonoBehaviour {
     public int pressedPlatesCounter;
     public int trainingRoomQuest;
 
-    public PlayerController player;
+  
     public GameObject TrainingRoomExit;
     public GameObject WeaponExit;
     public GameObject weaponPodium;
     public MessageBord messageBoard;
     public SpriteMask devMask;
+    public GameObject[] player;
+    public PlayerController playerController;
+    public GameObject finalBoss;
+    public GameObject replayAllButton;
+    public CanvasManager canvasManager;
+
+    public bool playerIsReal;
 
     private void Awake()
     {
-        player = FindObjectOfType<PlayerController>();
+        audioManager = FindObjectOfType<AudioManager>();
+        player = GameObject.FindGameObjectsWithTag("Player");
         Destroy(devMask);
+        foreach (GameObject i in player)
+        {
+            if (i.name == "Player")
+            {
+                playerIsReal = true;
+                playerController = player[0].GetComponent<PlayerController>();
+                
+            }
+
+        }
+        if (playerIsReal == true)
+        {
+            foreach (GameObject i in player)
+            {
+                if (i.name == "Player 1")
+                {
+                    Debug.Log("Gefunden");
+                    Destroy(i);
+                }
+
+            }
+        }
     }
+       
+    
 
     public void Start()
     {
@@ -49,23 +81,41 @@ public class EventController : MonoBehaviour {
 
     public void AwakeWeapon()
     {
-        player.ActivateWeapon();
+        playerController.ActivateWeapon();
     }
 
     public void RestartGame()
     {
+        
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        audioManager.RestartAll();
+        playerController.ActivateChildrenOnStart();
     }
+    public void ReplayAll()
+    {
+        SceneManager.LoadScene("Level1");
+    }
+
 
     public void EndGame()
     {
         Application.Quit();
     }
 
+    public void FinalBoss()
+    {
+        if (playerController.levelCounter == 13&& finalBoss==null)
+        { 
+
+             replayAllButton.SetActive(true);
+            canvasManager.menuePanel.SetActive(true);
+        }       
+
+    }
+
 
     public void MouseScript()
     {
-
         // initialize mouse with a new texture with the
         // hotspot set to the middle of the texture
         // (don't forget to set the texture in the inspector
@@ -80,8 +130,7 @@ public class EventController : MonoBehaviour {
             Ray ray = Camera.main.ScreenPointToRay(currentMouse);
             RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
             Debug.DrawLine(ray.origin, hit.point);
-        
-    
+            
 }
 
 }

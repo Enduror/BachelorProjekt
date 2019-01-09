@@ -8,15 +8,14 @@ public class GatherWeaponScript : MonoBehaviour {
 
     private void Start()
     {
-        message = FindObjectOfType<MessageBord>();
+        
         player = GameObject.FindGameObjectWithTag("Player");
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "PlayerCollider")
         {
-            player.GetComponentInParent<PlayerController>().ActivateWeapon();
-            message.CloseMessage();
+            player.GetComponentInParent<PlayerController>().ActivateWeapon();            
             Destroy(gameObject);
 
         }

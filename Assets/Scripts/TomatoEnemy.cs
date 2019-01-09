@@ -5,6 +5,10 @@ using UnityEngine;
 public class TomatoEnemy : MonoBehaviour
 {
 
+
+    // AudioManager
+
+    public AudioManager audioManager;
     //TomatoMove
     public float moveSpeed;
     public float chaseRange;
@@ -28,7 +32,10 @@ public class TomatoEnemy : MonoBehaviour
 
     // Use this for initialization
     void Start()
-    {      
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+        var random = Random.Range(-0.3f, 0.3f);
+        transform.localScale += new Vector3(random, random, 0);
         player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
         playerController = FindObjectOfType<PlayerController>();
@@ -40,6 +47,8 @@ public class TomatoEnemy : MonoBehaviour
     {
         DistanceCalculator();
     }
+
+    
 
     public void DistanceCalculator()
     {
@@ -59,8 +68,8 @@ public class TomatoEnemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {       
-        if (collision.tag == "Player")
-        {
+        if (collision.tag == "PlayerCollider")
+        {            
             attackSpeed = StartAttackSpeed;
             Destroy(Instantiate(playerBlood, player.transform.position, Quaternion.identity), 2);
             playerController.TakeDamage(damage);
@@ -68,6 +77,13 @@ public class TomatoEnemy : MonoBehaviour
 
 
         }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        // Draw a yellow sphere at the transform's position
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position,30);
     }
 
 

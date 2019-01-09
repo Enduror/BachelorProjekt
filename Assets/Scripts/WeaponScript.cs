@@ -10,14 +10,23 @@ public class WeaponScript : MonoBehaviour {
     public Transform tip;
     public Vector2 bloodDirection;
     public Animator anim;
-
+    public AudioManager AudioManager;
+    
+    public void Update()
+    {
+        if (anim == null)
+        {
+            anim = Camera.main.GetComponent<Animator>();
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-      
         //anim.SetTrigger("shake");
-        if (collision.GetComponentInParent<Transform>().name == "Ground")
+        if (collision.name == "GroundManager")
         {            
             anim.SetTrigger("shake");
+            AudioManager.Play("sound_player_hitwall");
+            
             Destroy(Instantiate(wallEmiter, tip.position, tip.rotation), 10);
         }
 

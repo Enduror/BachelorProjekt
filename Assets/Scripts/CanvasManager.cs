@@ -7,17 +7,15 @@ using UnityEngine.SceneManagement;
 public class CanvasManager : MonoBehaviour {
 
     // hearthContainers
-    public GameObject hearthContrainer;
-    public Transform spawnHealthPoint;
-    public Vector3 currentLocation;
+    public GameObject hearthContrainer;   
     public PlayerController player;
    
 
     // achievmentPanel 
     public Animator anim;
-    public GameObject achievementPanel;
 
 
+    public GameObject menuePanel;
     public GameObject restartButton;
     public GameObject QuitButton;
 
@@ -32,7 +30,8 @@ public class CanvasManager : MonoBehaviour {
     }
     public void Start()
     {
-        //achievementPanel.SetActiv(true);
+        
+        player = FindObjectOfType<PlayerController>();
     }
 
     private void Update()
@@ -51,8 +50,7 @@ public class CanvasManager : MonoBehaviour {
 
         if (!player.isAlive)
         {
-            restartButton.SetActive(true);
-            QuitButton.SetActive(true);
+            menuePanel.SetActive(true);
         }
 
     }

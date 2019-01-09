@@ -12,14 +12,14 @@ public class Sign : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "PlayerCollider")
         {
             messageBoard.OpenMessage(messageToDisplay);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "PlayerCollider")
         {
             messageBoard.CloseMessage();
         }

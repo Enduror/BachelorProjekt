@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 58857269333698384}
   m_Layer: 12
   m_Name: Colliders
-  m_TagString: Player
+  m_TagString: PlayerCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -192,7 +192,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1477605173185346}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.5, y: 1, z: 0}
+  m_LocalPosition: {x: 0.1, y: -4.1, z: 0}
   m_LocalScale: {x: 3.064786, y: 3.064786, z: 3.064786}
   m_Children:
   - {fileID: 4388027159880148}
@@ -348,6 +348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca8365d0b82edd84e97b5e80255bc8db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioManager: {fileID: 0}
   isAlive: 1
   moveSpeed: 10
   rb: {fileID: 50888659269300888}
@@ -360,6 +361,7 @@ MonoBehaviour:
   startHealth: 3
   playerBlood: {fileID: 1117118293139136, guid: 75777662be3391c40989e4619d13056d,
     type: 2}
+  levelCounter: 0
 --- !u!114 &114892130382855422
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -378,6 +380,7 @@ MonoBehaviour:
   tip: {fileID: 224367510098173736}
   bloodDirection: {x: 0, y: 0}
   anim: {fileID: 0}
+  AudioManager: {fileID: 0}
 --- !u!198 &198186004537702978
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -5048,7 +5051,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 626202191
   m_SortingLayer: 4
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: ca54706f128cdbc4a80d8e21dcda65ff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5132,7 +5135,7 @@ RectTransform:
   m_GameObject: {fileID: 1591474160050966}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.29463, y: 0.29463, z: 0.29463}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 224367510098173736}
   m_Father: {fileID: 4757083986421850}

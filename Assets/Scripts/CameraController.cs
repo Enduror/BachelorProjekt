@@ -9,7 +9,7 @@ public class CameraController : MonoBehaviour {
 	
     public void Awake()
     {
-        //
+        player = FindObjectOfType<PlayerController>().GetComponent<Transform>();
         
     }
 	
