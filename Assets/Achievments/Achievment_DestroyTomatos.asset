@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Name: Achievment_DestroyTomatos
   m_EditorClassIdentifier: 
   questText: Bring wrath to the tomatos
-  progressText: 
+  progressText: 0 / 30
   currentProgress: 0
   targetProgress: 30
   picture: {fileID: 0}
   checkMark: {fileID: 0}
+  achievement: 0

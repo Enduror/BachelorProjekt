@@ -6,6 +6,7 @@ public class FireSide : MonoBehaviour {
 
     public GameObject weaponFire;
     
+    
     private void Start()
     {
         weaponFire = GameObject.Find("FireParticles");
@@ -19,7 +20,9 @@ public class FireSide : MonoBehaviour {
         }
         if(collision.tag== "Weapon")
         {
-            weaponFire.SetActive(true);
+            weaponFire.GetComponent<FireWeapon>().isBurning = true;
+            weaponFire.GetComponent<FireWeapon>().CheckForWeapon();
+
         }
     }
 

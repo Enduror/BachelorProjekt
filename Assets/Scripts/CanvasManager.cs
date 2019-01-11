@@ -53,12 +53,5 @@ public class CanvasManager : MonoBehaviour {
             menuePanel.SetActive(true);
         }
 
-    }
-
-    public void AchievementPanel()
-    {
-        anim.SetTrigger("Panel");
-    }
-
-    
+    }    
 }

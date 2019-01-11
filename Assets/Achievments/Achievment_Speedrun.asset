@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Name: Achievment_Speedrun
   m_EditorClassIdentifier: 
   questText: Finish each level in under a minute
-  progressText: 
+  progressText: 0 / 60
   currentProgress: 0
   targetProgress: 60
   picture: {fileID: 0}
   checkMark: {fileID: 0}
+  achievement: 2

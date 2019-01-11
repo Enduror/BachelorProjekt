@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour {
     private Vector2 playerDirection2D;
     private GameObject spawnPoint;
 
+    public GameObject fireParticles;
+
     //PlayerDirection
     public float offset;
     public GameObject Weapon;
@@ -44,11 +46,12 @@ public class PlayerController : MonoBehaviour {
     {
         levelCounter = 1;
         hasWeapon = false;
+        fireParticles.GetComponent<FireWeapon>().CheckForWeapon();
         Weapon.SetActive(false);
-       
-        isAlive = true;
-        audioManager.Play("sound_player_idle");
 
+        isAlive = true;
+        //audioManager.Play("sound_player_idle");
+       
     }
 
     //Physics
@@ -172,10 +175,9 @@ public class PlayerController : MonoBehaviour {
         isAlive = true;
         foreach (Transform child in transform)
         {
-            if (child.gameObject.name != "FireParticles")
-            {
+            
                 child.gameObject.SetActive(true);
-            }
+            
             
         }
         transform.position = spawnPoint.transform.position;
@@ -183,7 +185,8 @@ public class PlayerController : MonoBehaviour {
         if (levelCounter <= 5)
         {
             hasWeapon = false;
-            Weapon.SetActive(false);            
+            fireParticles.GetComponent<FireWeapon>().CheckForWeapon();
+            Weapon.SetActive(false);
         }
         
     }
@@ -191,6 +194,7 @@ public class PlayerController : MonoBehaviour {
     public void ActivateWeapon()
     {
         hasWeapon = true;
+        fireParticles.GetComponent<FireWeapon>().CheckForWeapon();
         Weapon.SetActive(true);
     }
 

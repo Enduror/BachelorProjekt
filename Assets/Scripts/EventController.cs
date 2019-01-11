@@ -28,6 +28,7 @@ public class EventController : MonoBehaviour {
     public GameObject finalBoss;
     public GameObject replayAllButton;
     public CanvasManager canvasManager;
+    public GameObject achievments;
 
     public bool playerIsReal;
 
@@ -90,9 +91,11 @@ public class EventController : MonoBehaviour {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         audioManager.RestartAll();
         playerController.ActivateChildrenOnStart();
-    }
+    }    
+
     public void ReplayAll()
     {
+        DontDestroyOnLoad(achievments);
         SceneManager.LoadScene("Level1");
     }
 
