@@ -9,6 +9,7 @@ TagManager:
   - Weapon
   - PlayerCollider
   - Achievements
+  - PlayerType
   layers:
   - Default
   - TransparentFX

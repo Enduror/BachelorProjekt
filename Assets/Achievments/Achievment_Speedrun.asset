@@ -17,4 +17,4 @@ MonoBehaviour:
   targetProgress: 60
   picture: {fileID: 0}
   checkMark: {fileID: 0}
-  achievement: 2
+  achievementType: 2

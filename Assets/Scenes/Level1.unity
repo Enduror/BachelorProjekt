@@ -1043,16 +1043,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114390644287194664, guid: 6fdc26ea816e9684f81343b1cbb11bbd,
-        type: 2}
-      propertyPath: myAchievment
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114894627589271328, guid: 6fdc26ea816e9684f81343b1cbb11bbd,
-        type: 2}
-      propertyPath: myAchievment
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fdc26ea816e9684f81343b1cbb11bbd, type: 2}
   m_IsPrefabAsset: 0

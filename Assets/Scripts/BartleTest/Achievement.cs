@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 
 
-public enum Achievment
+public enum AchievmentType
 {
     KILL,
     SECRETS,
@@ -15,22 +15,17 @@ public enum Achievment
 [CreateAssetMenu(fileName = "New Achievment", menuName = "Achievement")]
 public class Achievement: ScriptableObject{
 
-
     public string questText;
     public string progressText;
 
     public int currentProgress;
     public int targetProgress;
 
+    public bool inUse;
+
 
     public Image picture;
     public Image checkMark;   
 
-    public Achievment achievement;
-   
- 
-
-
-
-
+    public AchievmentType achievementType;   
 }

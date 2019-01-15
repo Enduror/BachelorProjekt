@@ -340,6 +340,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4021803561322358}
+  - component: {fileID: 114109053347630574}
   m_Layer: 0
   m_Name: Achievements
   m_TagString: Achievements
@@ -2505,6 +2506,35 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114109053347630574
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1192502342297446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72194d2e57c1dd44c8a801f2178a1924, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layout:
+  - {fileID: 1600825903999492}
+  - {fileID: 1350990135071456}
+  - {fileID: 1634252980597140}
+  playerType1Achievments:
+  - {fileID: 11400000, guid: fea1ad37eb4924d44b2d157d283887c4, type: 2}
+  - {fileID: 11400000, guid: fea1ad37eb4924d44b2d157d283887c4, type: 2}
+  playerType2Achievments:
+  - {fileID: 11400000, guid: 35b36f2ce0e7ee7448fbdc8cdc63a831, type: 2}
+  - {fileID: 11400000, guid: 35b36f2ce0e7ee7448fbdc8cdc63a831, type: 2}
+  playerType3Achievments:
+  - {fileID: 11400000, guid: d9fdafa033fede246a89ee4067f15017, type: 2}
+  - {fileID: 11400000, guid: d9fdafa033fede246a89ee4067f15017, type: 2}
+  primaryPlayerType: 
+  secondaryPlayerType: 
+  playerType1: Type1
+  playerType2: Type2
+  playerType3: Type3
 --- !u!114 &114126038318500492
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3357,11 +3387,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf75f3a2481a43440b85380a348d183a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  achievment: {fileID: 11400000, guid: fea1ad37eb4924d44b2d157d283887c4, type: 2}
+  achievment: {fileID: 0}
   questText: {fileID: 114507902088710498}
   progressText: {fileID: 114848372539764754}
   image: {fileID: 114187492660860840}
   checkMark: {fileID: 114486593017636746}
+  currentProgress: 0
+  targetProgress: 0
+  isDone: 0
 --- !u!114 &114390644287194664
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3373,11 +3406,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf75f3a2481a43440b85380a348d183a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  achievment: {fileID: 11400000, guid: 35b36f2ce0e7ee7448fbdc8cdc63a831, type: 2}
+  achievment: {fileID: 0}
   questText: {fileID: 114793694350400662}
   progressText: {fileID: 114377917205836894}
   image: {fileID: 114524822023816272}
   checkMark: {fileID: 114356793948451970}
+  currentProgress: 0
+  targetProgress: 0
+  isDone: 0
 --- !u!114 &114394720032133016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3572,7 +3608,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Find atleast 3 Secrets
+  m_Text: 'Null
+
+'
 --- !u!114 &114510799416225418
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4553,7 +4591,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Find atleast 3 Secrets
+  m_Text: Null
 --- !u!114 &114795700816227212
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4896,7 +4934,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Find atleast 3 Secrets
+  m_Text: Null
 --- !u!114 &114874498898345546
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4953,11 +4991,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf75f3a2481a43440b85380a348d183a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  achievment: {fileID: 11400000, guid: d9fdafa033fede246a89ee4067f15017, type: 2}
+  achievment: {fileID: 0}
   questText: {fileID: 114866179688795414}
   progressText: {fileID: 114185370940356978}
   image: {fileID: 114358958011012450}
   checkMark: {fileID: 114237647198574582}
+  currentProgress: 0
+  targetProgress: 0
+  isDone: 0
 --- !u!114 &114902426883678554
 MonoBehaviour:
   m_ObjectHideFlags: 1

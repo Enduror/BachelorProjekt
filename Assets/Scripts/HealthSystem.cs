@@ -8,11 +8,12 @@ public class HealthSystem : MonoBehaviour {
     public EventController ec;
     public AudioManager audioManager;
     public GameObject healthPickUp;
-    public bool alive;    
+    public bool alive;
+    public AchievmentDisplay achievmentDisplay;
     
 	// Use this for initialization
 	void Start () {
-       
+        achievmentDisplay = FindObjectOfType<AchievmentDisplay>();
         alive = true;
         health = startHealth;
         ec = FindObjectOfType<EventController>();
@@ -23,6 +24,8 @@ public class HealthSystem : MonoBehaviour {
 	void Update () {
         if (health <= 0 && alive)
         {
+            achievmentDisplay.OnTomatoKill();
+
             alive = false;
             var rng = Random.Range(0, 25);
 
