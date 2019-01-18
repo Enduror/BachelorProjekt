@@ -22,7 +22,7 @@ public class EventController : MonoBehaviour {
     public GameObject WeaponExit;
     public GameObject weaponPodium;
     public MessageBord messageBoard;
-    public SpriteMask devMask;
+    
     public GameObject[] player;
     public PlayerController playerController;
     public GameObject finalBoss;
@@ -34,9 +34,10 @@ public class EventController : MonoBehaviour {
 
     private void Awake()
     {
+        achievments = GameObject.FindGameObjectWithTag("Achievements");
         audioManager = FindObjectOfType<AudioManager>();
         player = GameObject.FindGameObjectsWithTag("Player");
-        Destroy(devMask);
+        
         foreach (GameObject i in player)
         {
             if (i.name == "Player")

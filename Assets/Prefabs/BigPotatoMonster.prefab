@@ -333,7 +333,10 @@ MonoBehaviour:
   startHealth: 15
   ec: {fileID: 0}
   audioManager: {fileID: 0}
-  healthPickUp: {fileID: 0}
+  healthPickUp: {fileID: 1298470942005346, guid: f8965c0dd9cc36448ae1dfd14fc57072,
+    type: 2}
+  alive: 0
+  achievmentDisplay: {fileID: 0}
 --- !u!114 &114856208776387000
 MonoBehaviour:
   m_ObjectHideFlags: 1

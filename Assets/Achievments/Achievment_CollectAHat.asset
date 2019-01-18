@@ -9,13 +9,13 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d7837fedd031d14b936bf02899cd184, type: 3}
-  m_Name: Achievment_Secrets
+  m_Name: Achievment_Step on 5 Traps 3
   m_EditorClassIdentifier: 
-  questText: Find all secrets
-  progressText: 0 / 5
+  questText: Bring wrath to the tomatos
+  progressText: 0 / 30
   currentProgress: 0
-  targetProgress: 3
+  targetProgress: 30
   inUse: 0
   picture: {fileID: 0}
   checkMark: {fileID: 0}
-  achievementType: 1
+  achievementType: 0

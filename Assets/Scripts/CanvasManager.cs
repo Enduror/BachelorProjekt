@@ -26,7 +26,7 @@ public class CanvasManager : MonoBehaviour {
     public GameObject transitionScreen;
     private void Awake()
     {
-        transitionScreen.SetActive(true);
+       // transitionScreen.SetActive(true);
     }
     public void Start()
     {

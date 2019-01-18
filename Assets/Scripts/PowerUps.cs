@@ -26,8 +26,7 @@ public class PowerUps : MonoBehaviour {
         pickedUp = true;
         if (type == 0)
         {
-            player.health += 1;
-            player.startHealth += 1;
+            player.health += 1;            
 
         }
         if (type == 1)
@@ -53,7 +52,7 @@ public class PowerUps : MonoBehaviour {
             GetComponent<SpriteRenderer>().enabled=false;
             GetComponentInChildren<SpriteRenderer>().enabled = false;
             GetComponent<Collider2D>().enabled = false;
-            Destroy(gameObject,1);
+            Destroy(gameObject,0.8f);
         }
     }
 

@@ -6,16 +6,27 @@ public class AchievementDistributor : MonoBehaviour {
 
     public GameObject[] layout;
 
-    public Achievement[] playerType1Achievments;
-    public Achievement[] playerType2Achievments;
-    public Achievement[] playerType3Achievments;
+
+    public Achievement[] randomAchievments;
+
+    public Achievement[] seekerAchievements;
+    public Achievement[] survivorAchievements;
+    public Achievement[] daredevilAchievements;
+    public Achievement[] mastermindAchievements;
+    public Achievement[] conquerorAchievements;
+    public Achievement[] socializerAchievements;
+    public Achievement[] achieverAchievements;
 
     public string primaryPlayerType;
     public string secondaryPlayerType;
 
-    public string playerType1;
-    public string playerType2;
-    public string playerType3;
+    public string seeker;
+    public string survivor;
+    public string daredevil;
+    public string mastermind;
+    public string conqueror;
+    public string socializer;
+    public string achiever;
 
     void Start()
     {        
@@ -28,38 +39,75 @@ public class AchievementDistributor : MonoBehaviour {
 
 
     public void SetLayout()
-    {
-        if (primaryPlayerType == playerType1)
+    {     
+
+        if (primaryPlayerType == seeker)
         {
-            layout[0].GetComponent<AchievmentDisplay>().achievment = playerType1Achievments[0];
+            layout[0].GetComponent<AchievmentDisplay>().achievment = seekerAchievements[0];
             Debug.Log(layout[0].GetComponent<AchievmentDisplay>().achievment);
-            layout[1].GetComponent<AchievmentDisplay>().achievment = playerType1Achievments[1];
+            layout[1].GetComponent<AchievmentDisplay>().achievment = seekerAchievements[1];
         }
-        else if (primaryPlayerType == playerType2)
+        else if (primaryPlayerType == survivor)
         {
-            layout[0].GetComponent<AchievmentDisplay>().achievment = playerType2Achievments[0];
-            layout[1].GetComponent<AchievmentDisplay>().achievment = playerType2Achievments[1];
+            layout[0].GetComponent<AchievmentDisplay>().achievment = survivorAchievements[0];
+            layout[1].GetComponent<AchievmentDisplay>().achievment = survivorAchievements[1];
         }
-        else if (primaryPlayerType == playerType3)
+        else if (primaryPlayerType == daredevil)
         {
-            layout[0].GetComponent<AchievmentDisplay>().achievment = playerType3Achievments[0];
-            layout[1].GetComponent<AchievmentDisplay>().achievment = playerType3Achievments[1];
+            layout[0].GetComponent<AchievmentDisplay>().achievment = daredevilAchievements[0];
+            layout[1].GetComponent<AchievmentDisplay>().achievment = daredevilAchievements[1];
+        }
+        else if (primaryPlayerType == mastermind)
+        {
+            layout[0].GetComponent<AchievmentDisplay>().achievment = mastermindAchievements[0];
+            layout[1].GetComponent<AchievmentDisplay>().achievment = mastermindAchievements[1];
+        }
+        else if (primaryPlayerType == conqueror)
+        {
+            layout[0].GetComponent<AchievmentDisplay>().achievment = conquerorAchievements[0];
+            layout[1].GetComponent<AchievmentDisplay>().achievment = conquerorAchievements[1];
+        }
+        else if (primaryPlayerType == socializer)
+        {
+            layout[0].GetComponent<AchievmentDisplay>().achievment = socializerAchievements[0];
+            layout[1].GetComponent<AchievmentDisplay>().achievment = socializerAchievements[1];
+        }
+        else if (primaryPlayerType == achiever)
+        {
+            layout[0].GetComponent<AchievmentDisplay>().achievment = achieverAchievements[0];
+            layout[1].GetComponent<AchievmentDisplay>().achievment = achieverAchievements[1];
         }
         //SecondaryType
 
-        if (secondaryPlayerType == playerType1)
+        if (secondaryPlayerType == seeker)
         {
-            layout[2].GetComponent<AchievmentDisplay>().achievment = playerType1Achievments[0];            
+            layout[2].GetComponent<AchievmentDisplay>().achievment = seekerAchievements[0];            
         }
 
-        else if (secondaryPlayerType == playerType2)
+        else if (secondaryPlayerType == survivor)
         {
-            layout[2].GetComponent<AchievmentDisplay>().achievment = playerType2Achievments[1];
+            layout[2].GetComponent<AchievmentDisplay>().achievment = survivorAchievements[0];
         }
 
-        else if (secondaryPlayerType == playerType3)
+        else if (secondaryPlayerType == daredevil)
         {
-            layout[2].GetComponent<AchievmentDisplay>().achievment = playerType3Achievments[2];
+            layout[2].GetComponent<AchievmentDisplay>().achievment = daredevilAchievements[0];
+        }
+        else if (secondaryPlayerType == mastermind)
+        {
+            layout[2].GetComponent<AchievmentDisplay>().achievment = mastermindAchievements[0];
+        }
+        else if (secondaryPlayerType == conqueror)
+        {
+            layout[2].GetComponent<AchievmentDisplay>().achievment = conquerorAchievements[0];
+        }
+        else if (secondaryPlayerType == socializer)
+        {
+            layout[2].GetComponent<AchievmentDisplay>().achievment = socializerAchievements[0];
+        }
+        else if (secondaryPlayerType == achiever)
+        {
+            layout[2].GetComponent<AchievmentDisplay>().achievment = achieverAchievements[0];
         }
     }
 

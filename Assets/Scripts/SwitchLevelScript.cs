@@ -10,6 +10,7 @@ public class SwitchLevelScript : MonoBehaviour {
     public Animator transitionAnim;
     public AudioManager audioManager;
     public GameObject achievements;
+    
 
     // Use this for initialization
 

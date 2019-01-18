@@ -72,37 +72,37 @@ MonoBehaviour:
     loop: 1
   - name: sound_player_death
     clip: {fileID: 8300000, guid: 073b650f44cb39c4cae917cfe7d7151b, type: 3}
-    volume: 0.158
+    volume: 0.092
     pitch: 1
     source: {fileID: 0}
     loop: 0
   - name: sound_player_hurt
     clip: {fileID: 8300000, guid: a8595bdb8e35fb04c84d6bd797e0f9bb, type: 3}
-    volume: 0.152
+    volume: 0.127
     pitch: 1
     source: {fileID: 0}
     loop: 0
   - name: sound_player_steponglas
     clip: {fileID: 8300000, guid: f3f983a8b4c540147ab8f8ab5e9458c5, type: 3}
-    volume: 0.233
+    volume: 0.142
     pitch: 1
     source: {fileID: 0}
     loop: 0
   - name: sound_player_hitwall
     clip: {fileID: 8300000, guid: 53136da6419f86a47a72488600dad419, type: 3}
-    volume: 0.233
+    volume: 0.179
     pitch: 1
     source: {fileID: 0}
     loop: 0
   - name: sound_player_hitvase
     clip: {fileID: 8300000, guid: 719c12d2918362f4186a86444862d7c0, type: 3}
-    volume: 0.233
+    volume: 0.063
     pitch: 1
     source: {fileID: 0}
     loop: 0
   - name: sound_player_wow
     clip: {fileID: 8300000, guid: aeb0888c58b40594c8f8cb0a4d62fe72, type: 3}
-    volume: 0.233
+    volume: 0.308
     pitch: 1
     source: {fileID: 0}
     loop: 0
