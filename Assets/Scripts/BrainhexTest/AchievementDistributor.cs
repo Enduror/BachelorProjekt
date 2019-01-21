@@ -50,7 +50,7 @@ public class AchievementDistributor : MonoBehaviour {
 
     public void SetLayout()
     {
-        layout[1].GetComponent<AchievmentDisplay>().achievment = mastermindAchievements[1];
+        
         if (primaryPlayerType == seeker)
         {
             layout[0].GetComponent<AchievmentDisplay>().achievment = seekerAchievements[0];            
@@ -69,7 +69,7 @@ public class AchievementDistributor : MonoBehaviour {
         else if (primaryPlayerType == mastermind)
         {
             layout[0].GetComponent<AchievmentDisplay>().achievment = mastermindAchievements[0];           
-            
+            layout[1].GetComponent<AchievmentDisplay>().achievment = mastermindAchievements[1];
         }
         else if (primaryPlayerType == conqueror)
         {
