@@ -10,6 +10,7 @@ public class FireWeapon : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         playerController = FindObjectOfType<PlayerController>();
+        isBurning = false;
 	}
 	
 	// Update is called once per frame
@@ -19,14 +20,22 @@ public class FireWeapon : MonoBehaviour {
 
     public void CheckForWeapon()
     {
-        if (playerController.hasWeapon == true && isBurning == true)
+        try
         {
-            GetComponent<ParticleSystem>().Play();
+            if (playerController.hasWeapon == true && isBurning == true)
+            {
+                GetComponent<ParticleSystem>().Play();
+            }
+            else
+            {
+                GetComponent<ParticleSystem>().Stop();
+            }
         }
-        else
+        catch
         {
-            GetComponent<ParticleSystem>().Stop();
+            Debug.Log("problems");
         }
+       
         
     }
 }

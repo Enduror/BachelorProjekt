@@ -23,6 +23,7 @@ public class Spikes : MonoBehaviour {
             anim.SetTrigger("Spike");
             player.GetComponentInParent<PlayerController>().TakeDamage(spikeDamage);
             GetComponent<BoxCollider2D>().enabled = false;
+            GetComponent<AudioSource>().Play();
         }
         
     }

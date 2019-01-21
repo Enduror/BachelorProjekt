@@ -37,6 +37,7 @@ GameObject:
   - component: {fileID: 4110683276470726}
   - component: {fileID: 114783848779930594}
   - component: {fileID: 50888659269300888}
+  - component: {fileID: 114388302565980340}
   m_Layer: 12
   m_Name: Player 1
   m_TagString: Player
@@ -112,7 +113,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1841140024039950
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,6 +326,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114388302565980340
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1477605173185346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16f1dd4700041ba45bed0315d8fa7423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  progress: 0
+  firstPuzzleDone: 0
+  secondPuzzleDone: 0
+  thirdPuzzleDone: 0
+  puzzle: NKPLOXTZU
+  audioManager: {fileID: 0}
+  playerController: {fileID: 0}
 --- !u!114 &114627449183958712
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -337,6 +356,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tip: {fileID: 1900869159765638}
+  playerController: {fileID: 0}
+  isBurning: 0
 --- !u!114 &114783848779930594
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -354,6 +375,7 @@ MonoBehaviour:
   rb: {fileID: 50888659269300888}
   moveVector3: {x: 0, y: 0, z: 0}
   realPlayerAnim: {fileID: 95190122961567548}
+  fireParticles: {fileID: 1830895279005922}
   offset: -90
   Weapon: {fileID: 1841140024039950}
   hasWeapon: 0
@@ -361,7 +383,7 @@ MonoBehaviour:
   startHealth: 3
   playerBlood: {fileID: 1117118293139136, guid: 75777662be3391c40989e4619d13056d,
     type: 2}
-  levelCounter: 0
+  levelCounter: 1
 --- !u!114 &114892130382855422
 MonoBehaviour:
   m_ObjectHideFlags: 1

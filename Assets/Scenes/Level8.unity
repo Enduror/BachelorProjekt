@@ -4031,7 +4031,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4914058978149018, guid: 5f87d0e5eb3a3ae4eb4d2ca970a76669, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 7.6
+      value: 11.13
       objectReference: {fileID: 0}
     - target: {fileID: 4914058978149018, guid: 5f87d0e5eb3a3ae4eb4d2ca970a76669, type: 2}
       propertyPath: m_LocalPosition.z
@@ -9417,6 +9417,31 @@ Prefab:
       propertyPath: m_Name
       value: Vase (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 212640666748221424, guid: 2500138c2900f5b4c85a096bbd3af55a,
+        type: 2}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212841018719952290, guid: 2500138c2900f5b4c85a096bbd3af55a,
+        type: 2}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212128255642599776, guid: 2500138c2900f5b4c85a096bbd3af55a,
+        type: 2}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212939369377163312, guid: 2500138c2900f5b4c85a096bbd3af55a,
+        type: 2}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212749435986962442, guid: 2500138c2900f5b4c85a096bbd3af55a,
+        type: 2}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2500138c2900f5b4c85a096bbd3af55a, type: 2}
   m_IsPrefabAsset: 0
@@ -10409,7 +10434,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4914058978149018, guid: 5f87d0e5eb3a3ae4eb4d2ca970a76669, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 7.6000004
+      value: 5.54
       objectReference: {fileID: 0}
     - target: {fileID: 4914058978149018, guid: 5f87d0e5eb3a3ae4eb4d2ca970a76669, type: 2}
       propertyPath: m_LocalPosition.z

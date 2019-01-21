@@ -15,6 +15,7 @@ public class Wubble : MonoBehaviour {
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
+        
         if (collision.tag == "PlayerCollider")
         {
             anim.SetTrigger("Wuble");

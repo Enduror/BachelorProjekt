@@ -106,3 +106,21 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
     loop: 0
+  - name: sound_achievements_ohh
+    clip: {fileID: 8300000, guid: 92509b3acaf9d7948a3e1f959f739225, type: 3}
+    volume: 0.308
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: sound_achievements_done
+    clip: {fileID: 8300000, guid: f8a86d040cbd8f24f8269b4ba46ab0b6, type: 3}
+    volume: 0.308
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: 2
+    clip: {fileID: 8300000, guid: aeb0888c58b40594c8f8cb0a4d62fe72, type: 3}
+    volume: 0.544
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0

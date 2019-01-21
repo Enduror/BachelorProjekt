@@ -15,12 +15,13 @@ public class TriggerPlate : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "PlayerCollider")
+        if (collision.tag == "PlayerCollider" && isPressed == false)
         {
             
             anim.SetTrigger("pop");
             GetComponent<SpriteRenderer>().color = pressedColor;
             isPressed = true;
+            GetComponent<AudioSource>().Play();
         }
     }
 }

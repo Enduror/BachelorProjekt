@@ -24,7 +24,6 @@ public class HealthSystem : MonoBehaviour {
 	void Update () {
         if (health <= 0 && alive)
         {
-            achievmentDisplay.OnTomatoKill();
 
             alive = false;
             var rng = Random.Range(0, 25);
