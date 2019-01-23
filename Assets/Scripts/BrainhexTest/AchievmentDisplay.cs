@@ -10,6 +10,8 @@ public class AchievmentDisplay : MonoBehaviour {
     public AudioManager audioManager;
 
     public PuzzleManager puzzleManager;
+
+    public int wallHitCount;
     
     public Text questText;
     public Text progressText;
@@ -19,13 +21,28 @@ public class AchievmentDisplay : MonoBehaviour {
     public int currentProgress;
     public int targetProgress;
 
+    public bool achievementIsDone;
     public bool isDone;
+
+    public PlayerController player;
+
+    public float timer;
+    public float currentTime;
+
+    // needs to be reset after game;
+
+    public bool playerDiedRecently;
+    
 
     void Start () {
         audioManager = FindObjectOfType<AudioManager>();
         isDone = false;
         puzzleManager = FindObjectOfType<PuzzleManager>();
-        isDone = false;
+        achievementIsDone = false;
+
+        player = FindObjectOfType <PlayerController>();
+
+        
 	}
 
     // The first part activates the Gui and is off after that! 
@@ -33,12 +50,39 @@ public class AchievmentDisplay : MonoBehaviour {
     {
         if (achievment != null && isDone == false)
         {
+            //sets Gui;
             isDone = true;
             Debug.Log("stuffhappens");
             SetGui();
+
+            //Sets Tags for this Achievement depending on the type
+            if (achievment.achievementType == AchievmentType.HITTHEWALL)
+            {
+                gameObject.tag = "HitTheWallAchievement";
+            }
+            if (achievment.achievementType == AchievmentType.KILLTOMATOS)
+            {
+                gameObject.tag = "KillTomatoAchievement";
+            }
+            if (achievment.achievementType == AchievmentType.FINDSECRETS)
+            {
+                gameObject.tag = "FindSecretsAchievement";
+            }
+            if (achievment.achievementType == AchievmentType.MASSOCHIST)
+            {
+                gameObject.tag = "StepOnTrapsAchievement";
+            }
         }
         
-          //  PuzzleSolver();
+        //PuzzleSolveQuest called to often
+        PuzzleSolver();
+
+        //GatherHealthQuest called to often
+        GatherHealth();
+        
+
+        
+
        
     }  
     // sets the Guian the beginning
@@ -62,7 +106,8 @@ public class AchievmentDisplay : MonoBehaviour {
 
     public void PuzzleSolver()
     {
-        Debug.Log(achievment.achievementType);
+        if (achievementIsDone == false)
+        {
             if (achievment.achievementType == AchievmentType.SOLVEPUZZLES)
             {
                 if (puzzleManager.firstPuzzleDone)
@@ -84,22 +129,99 @@ public class AchievmentDisplay : MonoBehaviour {
                     currentProgress++;
                     UpdateGUI();
                 }
+                CheckForProgress();
             }
+        }
         
     }
+
+    // just updates the text
     public void UpdateGUI()
     {        
-        progressText.text= achievment.currentProgress + "/" + achievment.targetProgress;
+        progressText.text = currentProgress + "/" + targetProgress;
     }
 
     public void CheckForProgress()
     {
-        if (currentProgress >= targetProgress)
+        if (currentProgress >= targetProgress && achievementIsDone==false)
         {
-            progressText.text = "";
-            checkMark.enabled = true;
+            achievementIsDone = true;
+            progressText.text = "";            
             audioManager.Play("sound_achievements_done");
-            // Play 
+            
+        }
+    }
+
+
+    //Hit the Wall Achievement  is called in weapon script
+    public void WallHitCounter()
+    {       
+        if (achievment.achievementType == AchievmentType.HITTHEWALL)
+        {           
+                currentProgress++;
+                UpdateGUI();
+                CheckForProgress();
+            
+        }
+    }
+
+    //Kill Tomato Script is called in tomato/tomate healthsystem script
+    public void KillTomatoCounter()
+    {
+        if (achievment.achievementType == AchievmentType.KILLTOMATOS)
+        {            
+            currentProgress++;
+            UpdateGUI();
+            CheckForProgress();
+        }
+    }
+
+
+    //Gather Health Function
+
+    public void GatherHealth()
+    {
+        if (achievment.achievementType == AchievmentType.GATHERHEALTH)
+        {
+            if (currentTime <= 0)
+            {
+                // no need to ask for max health cause its in the achievement class
+
+                currentProgress = player.health;
+                currentTime = timer;
+                UpdateGUI();
+                CheckForProgress();
+            }
+            currentTime -= Time.deltaTime;
+        }
+    }
+    //FindSecrets Achievement
+    public void FindSecret()
+    {
+        if (achievment.achievementType == AchievmentType.FINDSECRETS)
+        {
+            currentProgress++;
+            UpdateGUI();
+            CheckForProgress();
+        }
+    }
+
+    public void SteppedOnSpike()
+    {
+        if (achievment.achievementType == AchievmentType.MASSOCHIST)
+        {
+            if (playerDiedRecently == true)
+            {
+                currentProgress = 0;
+                playerDiedRecently = false;
+
+            }
+            else
+            {
+                currentProgress++;
+                UpdateGUI();
+                CheckForProgress();
+            }
         }
     }
 }

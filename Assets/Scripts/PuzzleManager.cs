@@ -34,12 +34,14 @@ public class PuzzleManager : MonoBehaviour {
     
 
     public void PuzzleSwitch()
-    {          
+    {
+        
+
         switch (progress)
         {
             case 0:              
 
-                if (Input.GetKeyDown(KeyCode.N))
+                if (Input.GetKeyDown(KeyCode.N)&& playerController.levelCounter == 4)
                 {
                     progress++;
                     audioManager.Play("sound_achievements_ohh");
@@ -48,7 +50,7 @@ public class PuzzleManager : MonoBehaviour {
 
                 break;
             case 1:
-                if (Input.GetKeyDown(KeyCode.K))
+                if (Input.GetKeyDown(KeyCode.K) && playerController.levelCounter == 4)
                 {
                     progress++;
                     audioManager.Play("sound_achievements_ohh");
@@ -56,7 +58,7 @@ public class PuzzleManager : MonoBehaviour {
                  
                 break;
             case 2:
-                if (Input.GetKeyDown(KeyCode.P))
+                if (Input.GetKeyDown(KeyCode.P) && playerController.levelCounter == 4)
                 {
                     progress++;
                     audioManager.Play("sound_achievements_ohh");
@@ -71,7 +73,7 @@ public class PuzzleManager : MonoBehaviour {
                 break;
 
             case 4:
-                if (Input.GetKeyDown(KeyCode.L))
+                if (Input.GetKeyDown(KeyCode.L) && playerController.levelCounter == 9)
                 {
                     progress++;
                     audioManager.Play("sound_achievements_ohh");
@@ -79,7 +81,7 @@ public class PuzzleManager : MonoBehaviour {
                  
                 break;
             case 5:
-                if (Input.GetKeyDown(KeyCode.O))
+                if (Input.GetKeyDown(KeyCode.O) && playerController.levelCounter == 9)
                 {
                     progress++;
                     audioManager.Play("sound_achievements_ohh");
@@ -88,7 +90,7 @@ public class PuzzleManager : MonoBehaviour {
                    
                 break;
             case 6:
-                if (Input.GetKeyDown(KeyCode.X))
+                if (Input.GetKeyDown(KeyCode.X) && playerController.levelCounter == 9)
                 {
                     progress++;
                     audioManager.Play("sound_achievements_ohh");
@@ -104,7 +106,7 @@ public class PuzzleManager : MonoBehaviour {
                 break;
             case 8:
 
-                if (Input.GetKeyDown(KeyCode.T))
+                if (Input.GetKeyDown(KeyCode.T) && playerController.levelCounter == 12)
                 {
                     progress++;
                     audioManager.Play("sound_achievements_ohh");
@@ -112,7 +114,7 @@ public class PuzzleManager : MonoBehaviour {
                    
                 break;
             case 9:
-                if (Input.GetKeyDown(KeyCode.Z))
+                if (Input.GetKeyDown(KeyCode.Z) && playerController.levelCounter == 12)
                 {
                     progress++;
                     audioManager.Play("sound_achievements_ohh");
@@ -120,7 +122,7 @@ public class PuzzleManager : MonoBehaviour {
                   
                 break;
             case 10:
-                if (Input.GetKeyDown(KeyCode.U))
+                if (Input.GetKeyDown(KeyCode.U) && playerController.levelCounter == 12)
                 {
                     progress++;
                     audioManager.Play("sound_achievements_ohh");
@@ -134,6 +136,33 @@ public class PuzzleManager : MonoBehaviour {
                 progress++;
                 // reward ++;
                 break;
+        }
+        if (progress >= 12 && playerController.levelCounter == 1)
+        {
+            progress = 1;
+        }
+
+        if (playerController.levelCounter == 9)
+        {
+            if (progress >= 4)
+            {
+                return;
+            }
+            else
+            {
+                progress = 4;
+            }
+        }
+        if (playerController.levelCounter == 12)
+        {
+            if (progress >= 8)
+            {
+                return;
+            }
+            else
+            {
+                progress = 8;
+            }
         }
     }
 

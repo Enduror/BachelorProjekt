@@ -18,4 +18,4 @@ MonoBehaviour:
   inUse: 0
   picture: {fileID: 0}
   checkMark: {fileID: 0}
-  achievementType: 8
+  achievementType: 0

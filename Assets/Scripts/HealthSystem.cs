@@ -13,17 +13,28 @@ public class HealthSystem : MonoBehaviour {
     
 	// Use this for initialization
 	void Start () {
-        achievmentDisplay = FindObjectOfType<AchievmentDisplay>();
+
+
         alive = true;
         health = startHealth;
         ec = FindObjectOfType<EventController>();
         audioManager = FindObjectOfType<AudioManager>();
-	}
+        try {
+            achievmentDisplay = GameObject.FindGameObjectWithTag("KillTomatoAchievement").GetComponent<AchievmentDisplay>();
+        }
+        catch
+        {
+            
+        }
+        
+        }
 	
 	// Update is called once per frame
 	void Update () {
         if (health <= 0 && alive)
         {
+            if(achievmentDisplay!=null)
+            achievmentDisplay.KillTomatoCounter();
 
             alive = false;
             var rng = Random.Range(0, 25);

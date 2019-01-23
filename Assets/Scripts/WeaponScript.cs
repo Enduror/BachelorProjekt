@@ -12,6 +12,22 @@ public class WeaponScript : MonoBehaviour {
     public Animator anim;
     public AudioManager AudioManager;
     
+    
+
+    public AchievmentDisplay achievmentDisplay;
+
+    public void Start()
+    {
+        try
+        {
+            achievmentDisplay = GameObject.FindGameObjectWithTag("HitTheWallAchievement").GetComponent<AchievmentDisplay>();
+        }
+        catch
+        {
+            
+        }
+    }
+
     public void Update()
     {
         if (anim == null)
@@ -26,6 +42,10 @@ public class WeaponScript : MonoBehaviour {
         {            
             anim.SetTrigger("shake");
             AudioManager.Play("sound_player_hitwall");
+            if(achievmentDisplay!=null)
+            achievmentDisplay.WallHitCounter();
+            
+            
             
             Destroy(Instantiate(wallEmiter, tip.position, tip.rotation), 10);
         }

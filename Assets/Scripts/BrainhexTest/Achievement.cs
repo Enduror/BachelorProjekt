@@ -15,6 +15,8 @@ public enum AchievmentType
     FINDSECRETS,
     SPEEDRUN,
     MASSOCHIST,
+    GATHERHEALTH,
+    DONTDIE,
     TEST1,
     TEST2,
     TEST3,

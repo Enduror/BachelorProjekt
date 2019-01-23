@@ -677,6 +677,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 4761471461338668, guid: 6fdc26ea816e9684f81343b1cbb11bbd, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -151
+      objectReference: {fileID: 0}
+    - target: {fileID: 4761471461338668, guid: 6fdc26ea816e9684f81343b1cbb11bbd, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -83
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fdc26ea816e9684f81343b1cbb11bbd, type: 2}
   m_IsPrefabAsset: 0
@@ -1170,7 +1178,7 @@ RectTransform:
   m_GameObject: {fileID: 467294128}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.77172, y: 0.77172, z: 0.77172}
+  m_LocalScale: {x: 0.6463001, y: 0.77172, z: 0.77172}
   m_Children:
   - {fileID: 934101232}
   m_Father: {fileID: 1120521124}
@@ -1495,7 +1503,7 @@ RectTransform:
   m_GameObject: {fileID: 536581250}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.77172, y: 0.77172, z: 0.77172}
+  m_LocalScale: {x: 0.6463001, y: 0.77172, z: 0.77172}
   m_Children:
   - {fileID: 872471232}
   m_Father: {fileID: 879237391}
@@ -2503,13 +2511,19 @@ MonoBehaviour:
   achievment: {fileID: 0}
   audioManager: {fileID: 0}
   puzzleManager: {fileID: 0}
+  wallHitCount: 0
   questText: {fileID: 1294643941}
   progressText: {fileID: 972977320}
   image: {fileID: 536581253}
   checkMark: {fileID: 872471230}
   currentProgress: 0
   targetProgress: 0
+  achievementIsDone: 0
   isDone: 0
+  player: {fileID: 0}
+  timer: 0
+  currentTime: 0
+  playedDiedAtleastOnce: 0
 --- !u!4 &879237391
 Transform:
   m_ObjectHideFlags: 0
@@ -3006,8 +3020,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 127.06, y: 0}
-  m_SizeDelta: {x: 45.18, y: 100}
+  m_AnchoredPosition: {x: 124.6, y: 0}
+  m_SizeDelta: {x: 64.6, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &972977319
 GameObject:
@@ -3081,8 +3095,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 127.06, y: 0}
-  m_SizeDelta: {x: 45.18, y: 100}
+  m_AnchoredPosition: {x: 124.6, y: 0}
+  m_SizeDelta: {x: 64.6, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &975405066
 GameObject:
@@ -3125,25 +3139,25 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c656a3d57815bf247a21916039d89c2a, type: 2}
   seekerAchievements:
   - {fileID: 11400000, guid: 35b36f2ce0e7ee7448fbdc8cdc63a831, type: 2}
-  - {fileID: 11400000, guid: 35b36f2ce0e7ee7448fbdc8cdc63a831, type: 2}
+  - {fileID: 11400000, guid: f3e0e2035de9506418a3b51fca5e955a, type: 2}
   survivorAchievements:
   - {fileID: 11400000, guid: c656a3d57815bf247a21916039d89c2a, type: 2}
-  - {fileID: 11400000, guid: c656a3d57815bf247a21916039d89c2a, type: 2}
+  - {fileID: 11400000, guid: e422e3139d414b74abc97706cad17ed0, type: 2}
   daredevilAchievements:
   - {fileID: 11400000, guid: d9fdafa033fede246a89ee4067f15017, type: 2}
-  - {fileID: 11400000, guid: d9fdafa033fede246a89ee4067f15017, type: 2}
+  - {fileID: 11400000, guid: 62cc0b3aa6d4e334c82422c95fe62774, type: 2}
   mastermindAchievements:
   - {fileID: 11400000, guid: 52d14e6934bdda246b21914f683707d3, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 7be47c7c987444943a678f28e008bde3, type: 2}
   conquerorAchievements:
-  - {fileID: 11400000, guid: 7678a9efdd713634282613bb14d63cc9, type: 2}
-  - {fileID: 11400000, guid: 7678a9efdd713634282613bb14d63cc9, type: 2}
+  - {fileID: 11400000, guid: dfa12425ef6c92045b599eba00ba2aaa, type: 2}
+  - {fileID: 11400000, guid: 82fea0ee40b28ec4aab3bd84f0cc96c8, type: 2}
   socializerAchievements:
   - {fileID: 11400000, guid: 07b176d1d7e74f544a74701c2154ba1f, type: 2}
   - {fileID: 11400000, guid: 7be47c7c987444943a678f28e008bde3, type: 2}
   achieverAchievements:
   - {fileID: 11400000, guid: b1f5b9eaa73afec4ead6c944c980d228, type: 2}
-  - {fileID: 11400000, guid: 07b176d1d7e74f544a74701c2154ba1f, type: 2}
+  - {fileID: 11400000, guid: 7678a9efdd713634282613bb14d63cc9, type: 2}
   primaryPlayerType: 
   secondaryPlayerType: 
   seeker: Seeker
@@ -3488,13 +3502,19 @@ MonoBehaviour:
   achievment: {fileID: 0}
   audioManager: {fileID: 0}
   puzzleManager: {fileID: 0}
+  wallHitCount: 0
   questText: {fileID: 1847039253}
   progressText: {fileID: 1653589565}
   image: {fileID: 467294131}
   checkMark: {fileID: 934101230}
   currentProgress: 0
   targetProgress: 0
+  achievementIsDone: 0
   isDone: 0
+  player: {fileID: 0}
+  timer: 1
+  currentTime: 0
+  playedDiedAtleastOnce: 0
 --- !u!4 &1120521124
 Transform:
   m_ObjectHideFlags: 0
@@ -3745,7 +3765,7 @@ RectTransform:
   m_GameObject: {fileID: 1266396298}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.77172, y: 0.77172, z: 0.77172}
+  m_LocalScale: {x: 0.6463001, y: 0.77172, z: 0.77172}
   m_Children:
   - {fileID: 2077959107}
   m_Father: {fileID: 1860549104}
@@ -3862,7 +3882,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 24.78, y: 0}
+  m_AnchoredPosition: {x: 19.000051, y: 0}
   m_SizeDelta: {x: 173.53, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1317821154
@@ -4528,8 +4548,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 127.06, y: 0}
-  m_SizeDelta: {x: 45.18, y: 100}
+  m_AnchoredPosition: {x: 124.6, y: 0}
+  m_SizeDelta: {x: 64.6, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1677214401
 Prefab:
@@ -4863,7 +4883,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 24.78, y: 0}
+  m_AnchoredPosition: {x: 19, y: 0}
   m_SizeDelta: {x: 173.53, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1860549102
@@ -4896,13 +4916,19 @@ MonoBehaviour:
   achievment: {fileID: 0}
   audioManager: {fileID: 0}
   puzzleManager: {fileID: 0}
+  wallHitCount: 0
   questText: {fileID: 2053266220}
   progressText: {fileID: 957071150}
   image: {fileID: 1266396301}
   checkMark: {fileID: 2077959105}
   currentProgress: 0
   targetProgress: 0
+  achievementIsDone: 0
   isDone: 0
+  player: {fileID: 0}
+  timer: 0
+  currentTime: 0
+  playedDiedAtleastOnce: 0
 --- !u!4 &1860549104
 Transform:
   m_ObjectHideFlags: 0
@@ -5616,7 +5642,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 24.78, y: 0}
+  m_AnchoredPosition: {x: 19.000051, y: 0}
   m_SizeDelta: {x: 173.53, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &2058410049

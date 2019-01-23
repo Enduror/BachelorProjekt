@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d7837fedd031d14b936bf02899cd184, type: 3}
   m_Name: Achievment_Step on 5 Traps
   m_EditorClassIdentifier: 
-  questText: Step on 5 traps
+  questText: Step on 5 traps without dying
   progressText: 0 / 30
   currentProgress: 0
   targetProgress: 5

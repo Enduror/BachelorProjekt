@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour {
     private Vector2 playerDirection2D;
     private GameObject spawnPoint;
 
+    public AchievmentDisplay achievmentDisplay;
+
     public GameObject fireParticles;
 
     //PlayerDirection
@@ -31,6 +33,8 @@ public class PlayerController : MonoBehaviour {
     public int health;
     public int startHealth;
     public GameObject playerBlood;
+
+    
 
     public int levelCounter;
 
@@ -50,6 +54,8 @@ public class PlayerController : MonoBehaviour {
         hasWeapon = false;
         fireParticles.GetComponent<FireWeapon>().CheckForWeapon();
         Weapon.SetActive(false);
+        achievmentDisplay = FindObjectOfType<AchievmentDisplay>();
+       
 
         isAlive = true;
         //audioManager.Play("sound_player_idle");
@@ -149,8 +155,15 @@ public class PlayerController : MonoBehaviour {
 
             audioManager.Play("sound_player_death");
             //GetComponentInChildren<SpriteRenderer>().enabled = false;
-           
 
+            try
+            {
+                achievmentDisplay.playerDiedRecently = true;
+            }
+            catch
+            {
+
+            }
            
             
             DisableChildrenOnDeath();
@@ -160,6 +173,7 @@ public class PlayerController : MonoBehaviour {
         {
             audioManager.Play("sound_player_hurt");
         }
+        
     }
 
     public void DisableChildrenOnDeath()

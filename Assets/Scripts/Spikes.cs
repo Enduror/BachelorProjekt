@@ -5,6 +5,8 @@ using UnityEngine;
 public class Spikes : MonoBehaviour {
     public GameObject player;
     public Animator anim;
+
+    public AchievmentDisplay achievmentDisplay;
     
    
     public int spikeDamage;
@@ -13,6 +15,14 @@ public class Spikes : MonoBehaviour {
     {
         player = GameObject.FindGameObjectWithTag("Player");
         anim = GetComponentInChildren<Animator>();
+        try
+        {
+            achievmentDisplay = GameObject.FindGameObjectWithTag("StepOnTrapsAchievement").GetComponent<AchievmentDisplay>();
+        }
+        catch
+        {
+
+        }
     }
 
 
@@ -24,6 +34,10 @@ public class Spikes : MonoBehaviour {
             player.GetComponentInParent<PlayerController>().TakeDamage(spikeDamage);
             GetComponent<BoxCollider2D>().enabled = false;
             GetComponent<AudioSource>().Play();
+            if (achievmentDisplay != null)
+            {
+                achievmentDisplay.SteppedOnSpike();
+            }
         }
         
     }

@@ -9,13 +9,13 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d7837fedd031d14b936bf02899cd184, type: 3}
-  m_Name: Achievment_HitTheWall200Times
+  m_Name: Achievment_Take another lap with the blades
   m_EditorClassIdentifier: 
-  questText: Hit the wall 999 times
+  questText: Step on 5 traps
   progressText: 0 / 30
   currentProgress: 0
-  targetProgress: 999
+  targetProgress: 5
   inUse: 0
   picture: {fileID: 0}
   checkMark: {fileID: 0}
-  achievementType: 4
+  achievementType: 7

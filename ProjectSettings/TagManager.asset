@@ -10,6 +10,13 @@ TagManager:
   - PlayerCollider
   - Achievements
   - PlayerType
+  - HitTheWallAchievement
+  - KillTomatoAchievement
+  - FindSecretsAchievement
+  - GatheHealthAchievement
+  - StepOnTrapsAchievement
+  - DestroyVasesAchievement
+  - DontDieAchievement
   layers:
   - Default
   - TransparentFX
