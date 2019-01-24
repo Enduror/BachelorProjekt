@@ -73,7 +73,7 @@ Transform:
   m_LocalScale: {x: 0.18600461, y: 0.08160952, z: 0.18600461}
   m_Children: []
   m_Father: {fileID: 4659270655418644}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4184166218353866
 Transform:
@@ -86,7 +86,7 @@ Transform:
   m_LocalScale: {x: 0.52239335, y: 0.52239335, z: 0.52239335}
   m_Children: []
   m_Father: {fileID: 4659270655418644}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4659270655418644
 Transform:
@@ -95,11 +95,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1298384213060614}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 18.41, y: -114.38, z: -2.4736857}
+  m_LocalPosition: {x: 2.2553616, y: 4.4649186, z: -2.4736857}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4165908976832248}
   - {fileID: 4184166218353866}
+  - {fileID: 4165908976832248}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -254,6 +254,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   anim: {fileID: 0}
+  finalBossBlood: {fileID: 1117118293139136, guid: fef7b95f92d9fd345b80221b1a314ce6,
+    type: 2}
+  achievmentDisplay: {fileID: 0}
   spikeDamage: 1
 --- !u!212 &212059006650675652
 SpriteRenderer:

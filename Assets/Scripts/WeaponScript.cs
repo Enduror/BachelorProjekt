@@ -39,8 +39,17 @@ public class WeaponScript : MonoBehaviour {
     {
         //anim.SetTrigger("shake");
         if (collision.name == "GroundManager")
-        {            
-            anim.SetTrigger("shake");
+        {
+            try
+            {
+                anim.SetTrigger("shake");
+            }
+            catch
+            {
+                anim = Camera.main.GetComponent<Animator>();
+                anim.SetTrigger("shake");
+            }
+           
             AudioManager.Play("sound_player_hitwall");
             if(achievmentDisplay!=null)
             achievmentDisplay.WallHitCounter();

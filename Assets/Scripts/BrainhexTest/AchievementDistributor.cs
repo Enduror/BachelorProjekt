@@ -40,7 +40,7 @@ public class AchievementDistributor : MonoBehaviour {
         catch{
             primaryPlayerType = random;
             secondaryPlayerType = random;
-            Debug.Log("Testrun");
+           
         }
         
     }

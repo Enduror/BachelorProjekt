@@ -8,8 +8,10 @@ public class HealthSystem : MonoBehaviour {
     public EventController ec;
     public AudioManager audioManager;
     public GameObject healthPickUp;
+
+    public GameObject crown;
     public bool alive;
-    public AchievmentDisplay achievmentDisplay;
+   
     
 	// Use this for initialization
 	void Start () {
@@ -19,13 +21,7 @@ public class HealthSystem : MonoBehaviour {
         health = startHealth;
         ec = FindObjectOfType<EventController>();
         audioManager = FindObjectOfType<AudioManager>();
-        try {
-            achievmentDisplay = GameObject.FindGameObjectWithTag("KillTomatoAchievement").GetComponent<AchievmentDisplay>();
-        }
-        catch
-        {
-            
-        }
+        
         
         }
 	
@@ -33,8 +29,8 @@ public class HealthSystem : MonoBehaviour {
 	void Update () {
         if (health <= 0 && alive)
         {
-            if(achievmentDisplay!=null)
-            achievmentDisplay.KillTomatoCounter();
+            
+            
 
             alive = false;
             var rng = Random.Range(0, 25);
@@ -43,8 +39,15 @@ public class HealthSystem : MonoBehaviour {
             {
                 if (gameObject != null)
                 {
-                    Instantiate(healthPickUp, transform.position, transform.rotation);
+                    if (gameObject.tag == "FinalBoss")
+                    {
+                    }
 
+                    else
+                    {
+
+                        Instantiate(healthPickUp, transform.position, transform.rotation);
+                    }
                 }
             }
             Destroy(gameObject);           
@@ -53,7 +56,6 @@ public class HealthSystem : MonoBehaviour {
     public void TakeDamage(int damage)
     {
         audioManager.Play("sound_tomato_death");
-        health -= damage;  
-        
+        health -= damage;          
     }   
 }

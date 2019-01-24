@@ -11,11 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d7837fedd031d14b936bf02899cd184, type: 3}
   m_Name: Achievment_Take another lap with the blades
   m_EditorClassIdentifier: 
-  questText: Step on 5 traps
-  progressText: 0 / 30
+  questText: Take another bladerun
+  progressText: 1
   currentProgress: 0
-  targetProgress: 5
+  targetProgress: 1
   inUse: 0
   picture: {fileID: 0}
   checkMark: {fileID: 0}
-  achievementType: 7
+  achievementType: 10

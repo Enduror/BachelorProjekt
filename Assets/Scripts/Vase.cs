@@ -8,10 +8,16 @@ public class Vase : MonoBehaviour {
     public GameObject vaseParticle;
     public Animator vaseAnim;
     public AudioManager audioManager;
+    public AchievmentDisplay achievmentDisplay;
 	// Use this for initialization
 	void Start () {
         audioManager = FindObjectOfType<AudioManager>();
         vaseAnim = GetComponent<Animator>();
+        try
+        {
+            achievmentDisplay = GameObject.FindGameObjectWithTag("DestroyVasesAchievement").GetComponent<AchievmentDisplay>();
+        }
+        catch { }
         if (isBroken == true)
         {
             vaseAnim.Play("BrokenIdle");
@@ -31,6 +37,11 @@ public class Vase : MonoBehaviour {
             vaseAnim.SetTrigger("Shatter");
             gameObject.GetComponent<AudioSource>().Play();
             isBroken = true;
+            if (achievmentDisplay != null)
+            {
+                achievmentDisplay.KillVaseCounter();
+            }
+
             //Destroy(gameObject, 4);
         }
         else if (isBroken == true && collision.tag == "PlayerCollider")

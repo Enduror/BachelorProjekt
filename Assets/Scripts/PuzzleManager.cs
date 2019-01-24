@@ -11,7 +11,7 @@ public class PuzzleManager : MonoBehaviour {
 
     
 
-    public GameObject pickUp;
+    public GameObject[] pickUp;
 
     public string puzzle;
 
@@ -106,7 +106,7 @@ public class PuzzleManager : MonoBehaviour {
                 break;
             case 8:
 
-                if (Input.GetKeyDown(KeyCode.T) && playerController.levelCounter == 12)
+                if (Input.GetKeyDown(KeyCode.T) && playerController.levelCounter >= 12)
                 {
                     progress++;
                     audioManager.Play("sound_achievements_ohh");
@@ -114,7 +114,7 @@ public class PuzzleManager : MonoBehaviour {
                    
                 break;
             case 9:
-                if (Input.GetKeyDown(KeyCode.Z) && playerController.levelCounter == 12)
+                if (Input.GetKeyDown(KeyCode.Z) && playerController.levelCounter >= 12)
                 {
                     progress++;
                     audioManager.Play("sound_achievements_ohh");
@@ -122,7 +122,7 @@ public class PuzzleManager : MonoBehaviour {
                   
                 break;
             case 10:
-                if (Input.GetKeyDown(KeyCode.U) && playerController.levelCounter == 12)
+                if (Input.GetKeyDown(KeyCode.U) && playerController.levelCounter >= 12)
                 {
                     progress++;
                     audioManager.Play("sound_achievements_ohh");
@@ -168,8 +168,8 @@ public class PuzzleManager : MonoBehaviour {
 
     public void SpawnItem()
     {
-        
-        Instantiate(pickUp, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y+5, 0), Quaternion.identity);        
+        var rng = Random.Range(0, pickUp.Length);
+        Instantiate(pickUp[rng], new Vector3(gameObject.transform.position.x, gameObject.transform.position.y+5, 0), Quaternion.identity);        
     }
 }
 

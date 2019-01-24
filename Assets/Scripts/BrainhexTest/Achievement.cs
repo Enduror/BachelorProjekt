@@ -9,17 +9,17 @@ public enum AchievmentType
 {    
     SOLVEPUZZLES,
     COLLECTHAT,
-    DESTROYVASES,
-    KILLTOMATOS,
+    DESTROYVASES,    
     HITTHEWALL,
     FINDSECRETS,
     SPEEDRUN,
     MASSOCHIST,
     GATHERHEALTH,
     DONTDIE,
+    KILLBOSSWITHOUTWEAPON,
+    SECONDLAP,
     TEST1,
-    TEST2,
-    TEST3,
+    
 
 }
 

@@ -9,13 +9,13 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d7837fedd031d14b936bf02899cd184, type: 3}
-  m_Name: Achievment_DontDie
+  m_Name: Achievment_GetTheSecondHighestValue
   m_EditorClassIdentifier: 
-  questText: "Don\xB4t die"
-  progressText: 0 / 50
+  questText: Finish each level in under a minute
+  progressText: 0 / 60
   currentProgress: 0
-  targetProgress: 1
+  targetProgress: 60
   inUse: 0
   picture: {fileID: 0}
   checkMark: {fileID: 0}
-  achievementType: 9
+  achievementType: 5

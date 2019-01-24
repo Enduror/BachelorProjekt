@@ -41,18 +41,19 @@ public class AchievmentDisplay : MonoBehaviour {
         achievementIsDone = false;
 
         player = FindObjectOfType <PlayerController>();
+        playerDiedRecently = false;
 
-        
-	}
+
+
+    }
 
     // The first part activates the Gui and is off after that! 
     private void Update()
     {
         if (achievment != null && isDone == false)
         {
-            //sets Gui;
             isDone = true;
-            Debug.Log("stuffhappens");
+           
             SetGui();
 
             //Sets Tags for this Achievement depending on the type
@@ -60,9 +61,9 @@ public class AchievmentDisplay : MonoBehaviour {
             {
                 gameObject.tag = "HitTheWallAchievement";
             }
-            if (achievment.achievementType == AchievmentType.KILLTOMATOS)
+            if (achievment.achievementType == AchievmentType.DESTROYVASES)
             {
-                gameObject.tag = "KillTomatoAchievement";
+                gameObject.tag = "DestroyVasesAchievement";
             }
             if (achievment.achievementType == AchievmentType.FINDSECRETS)
             {
@@ -73,12 +74,17 @@ public class AchievmentDisplay : MonoBehaviour {
                 gameObject.tag = "StepOnTrapsAchievement";
             }
         }
-        
-        //PuzzleSolveQuest called to often
-        PuzzleSolver();
 
-        //GatherHealthQuest called to often
-        GatherHealth();
+        if (!achievementIsDone)
+        {
+            //PuzzleSolveQuest called to often
+            PuzzleSolver();
+
+            //GatherHealthQuest called to often
+            GatherHealth();
+        }
+        
+        
         
 
         
@@ -88,7 +94,6 @@ public class AchievmentDisplay : MonoBehaviour {
     // sets the Guian the beginning
     public void SetGui()
     {
-        
         currentProgress = achievment.currentProgress;
         targetProgress = achievment.targetProgress;
 
@@ -137,8 +142,11 @@ public class AchievmentDisplay : MonoBehaviour {
 
     // just updates the text
     public void UpdateGUI()
-    {        
-        progressText.text = currentProgress + "/" + targetProgress;
+    {
+        if (achievementIsDone == false)
+        {
+            progressText.text = currentProgress + "/" + targetProgress;
+        }       
     }
 
     public void CheckForProgress()
@@ -166,9 +174,9 @@ public class AchievmentDisplay : MonoBehaviour {
     }
 
     //Kill Tomato Script is called in tomato/tomate healthsystem script
-    public void KillTomatoCounter()
+    public void KillVaseCounter()
     {
-        if (achievment.achievementType == AchievmentType.KILLTOMATOS)
+        if (achievment.achievementType == AchievmentType.DESTROYVASES) 
         {            
             currentProgress++;
             UpdateGUI();
@@ -213,8 +221,8 @@ public class AchievmentDisplay : MonoBehaviour {
             if (playerDiedRecently == true)
             {
                 currentProgress = 0;
+                UpdateGUI();
                 playerDiedRecently = false;
-
             }
             else
             {
@@ -222,6 +230,16 @@ public class AchievmentDisplay : MonoBehaviour {
                 UpdateGUI();
                 CheckForProgress();
             }
+        }
+    }
+
+    public void FoundSecretLevel()
+    {
+        if (achievment.achievementType == AchievmentType.COLLECTHAT)
+        {            
+            currentProgress++;            
+            UpdateGUI();
+            CheckForProgress();
         }
     }
 }

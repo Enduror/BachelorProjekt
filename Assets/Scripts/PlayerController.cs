@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour {
     private Vector2 playerDirection2D;
     private GameObject spawnPoint;
 
+    public GameObject hat_Crown;
+
     public AchievmentDisplay achievmentDisplay;
 
     public GameObject fireParticles;
@@ -54,7 +56,9 @@ public class PlayerController : MonoBehaviour {
         hasWeapon = false;
         fireParticles.GetComponent<FireWeapon>().CheckForWeapon();
         Weapon.SetActive(false);
-        achievmentDisplay = FindObjectOfType<AchievmentDisplay>();
+
+       
+
        
 
         isAlive = true;
@@ -72,6 +76,18 @@ public class PlayerController : MonoBehaviour {
     }
     private void Update()
     {
+        if (achievmentDisplay == null&& levelCounter<2)
+        {
+            try
+            {
+                achievmentDisplay = GameObject.FindGameObjectWithTag("StepOnTrapsAchievement").GetComponent<AchievmentDisplay>();
+            }
+            catch
+            {
+
+            }
+        }
+
         if (spawnPoint == null) { 
         spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
          }   
@@ -158,11 +174,11 @@ public class PlayerController : MonoBehaviour {
 
             try
             {
-                achievmentDisplay.playerDiedRecently = true;
+                achievmentDisplay.playerDiedRecently = true;                
             }
             catch
             {
-
+                Debug.Log("DidntWork");
             }
            
             
@@ -212,6 +228,11 @@ public class PlayerController : MonoBehaviour {
         hasWeapon = true;
         fireParticles.GetComponent<FireWeapon>().CheckForWeapon();
         Weapon.SetActive(true);
+    }
+
+    public void ActivateCrownMode()
+    {
+        hat_Crown.SetActive(true);
     }
 
    
