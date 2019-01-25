@@ -64,12 +64,14 @@ public class AchievementDistributor : MonoBehaviour {
         else if (primaryPlayerType == daredevil)
         {
             layout[0].GetComponent<AchievmentDisplay>().achievment = daredevilAchievements[0];
-            layout[1].GetComponent<AchievmentDisplay>().achievment = daredevilAchievements[1];
+            var rng = Random.Range(0, randomAchievments.Length - 2);
+            layout[1].GetComponent<AchievmentDisplay>().achievment = randomAchievments[rng];
         }
         else if (primaryPlayerType == mastermind)
         {
-            layout[0].GetComponent<AchievmentDisplay>().achievment = mastermindAchievements[0];           
-            layout[1].GetComponent<AchievmentDisplay>().achievment = mastermindAchievements[1];
+            layout[0].GetComponent<AchievmentDisplay>().achievment = mastermindAchievements[0];
+            var rng = Random.Range(0, randomAchievments.Length - 2);
+            layout[1].GetComponent<AchievmentDisplay>().achievment = randomAchievments[rng];
         }
         else if (primaryPlayerType == conqueror)
         {
@@ -78,8 +80,10 @@ public class AchievementDistributor : MonoBehaviour {
         }
         else if (primaryPlayerType == socializer)
         {
-            layout[0].GetComponent<AchievmentDisplay>().achievment = socializerAchievements[0];
-            layout[1].GetComponent<AchievmentDisplay>().achievment = socializerAchievements[1];
+            var rng = Random.Range(0, randomAchievments.Length - 2);
+            layout[1].GetComponent<AchievmentDisplay>().achievment = randomAchievments[rng];
+             rng = Random.Range(0, randomAchievments.Length - 2);
+            layout[0].GetComponent<AchievmentDisplay>().achievment = randomAchievments[rng];
         }
         else if (primaryPlayerType == achiever)
         {
@@ -112,7 +116,9 @@ public class AchievementDistributor : MonoBehaviour {
         }
         else if (secondaryPlayerType == socializer)
         {
-            layout[2].GetComponent<AchievmentDisplay>().achievment = socializerAchievements[0];
+            var rng = Random.Range(0, randomAchievments.Length - 2);
+            layout[2].GetComponent<AchievmentDisplay>().achievment = randomAchievments[rng];
+            
         }
         else if (secondaryPlayerType == achiever)
         {

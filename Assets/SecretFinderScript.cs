@@ -18,15 +18,18 @@ public class SecretFinderScript : MonoBehaviour {
         {
           
         }
-	}	
+    }	
 	
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         GetComponent<Collider2D>().enabled = false;
         audiomanager.Play("sound_player_wow");
-        if(achievementDisplay!=null)
-        achievementDisplay.FindSecret();
+
+        if (achievementDisplay != null)
+        {
+            achievementDisplay.FindSecret();
+        }
         
     }
 }

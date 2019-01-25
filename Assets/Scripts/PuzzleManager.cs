@@ -132,7 +132,7 @@ public class PuzzleManager : MonoBehaviour {
             case 11:
                 thirdPuzzleDone = true;
                 audioManager.Play("sound_achievements_done");
-                SpawnItem();
+                Instantiate(pickUp[2], new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 5, 0), Quaternion.identity);
                 progress++;
                 // reward ++;
                 break;
@@ -168,7 +168,7 @@ public class PuzzleManager : MonoBehaviour {
 
     public void SpawnItem()
     {
-        var rng = Random.Range(0, pickUp.Length);
+        var rng = Random.Range(0, 1);
         Instantiate(pickUp[rng], new Vector3(gameObject.transform.position.x, gameObject.transform.position.y+5, 0), Quaternion.identity);        
     }
 }

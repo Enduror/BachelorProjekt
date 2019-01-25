@@ -17,7 +17,7 @@ public enum AchievmentType
     GATHERHEALTH,
     DONTDIE,
     KILLBOSSWITHOUTWEAPON,
-    SECONDLAP,
+    SECONDLAP,   
     TEST1,
     
 

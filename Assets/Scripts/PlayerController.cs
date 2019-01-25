@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour {
     private GameObject spawnPoint;
 
     public GameObject hat_Crown;
+    public GameObject hat_StrawHat;
+    public GameObject sunglases;
 
     public AchievmentDisplay achievmentDisplay;
 
@@ -233,6 +235,18 @@ public class PlayerController : MonoBehaviour {
     public void ActivateCrownMode()
     {
         hat_Crown.SetActive(true);
+        hat_StrawHat.SetActive(false);
+
+    }
+    public void ActivateStrawHatMode()
+    {
+        hat_StrawHat.SetActive(true);
+        hat_Crown.SetActive(false);
+    }
+
+    public void ActivateSunglases()
+    {
+        sunglases.SetActive(true);
     }
 
    

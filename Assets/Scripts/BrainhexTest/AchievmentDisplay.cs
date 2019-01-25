@@ -73,6 +73,10 @@ public class AchievmentDisplay : MonoBehaviour {
             {
                 gameObject.tag = "StepOnTrapsAchievement";
             }
+            if (achievment.achievementType == AchievmentType.COLLECTHAT)
+            {
+                gameObject.tag = "CollectAHatAchievement";
+            }
         }
 
         if (!achievementIsDone)
@@ -111,6 +115,9 @@ public class AchievmentDisplay : MonoBehaviour {
 
     public void PuzzleSolver()
     {
+        if (achievment != null)
+        {
+
         if (achievementIsDone == false)
         {
             if (achievment.achievementType == AchievmentType.SOLVEPUZZLES)
@@ -138,13 +145,14 @@ public class AchievmentDisplay : MonoBehaviour {
             }
         }
         
+        }
     }
 
     // just updates the text
     public void UpdateGUI()
     {
         if (achievementIsDone == false)
-        {
+        {            
             progressText.text = currentProgress + "/" + targetProgress;
         }       
     }
@@ -189,6 +197,9 @@ public class AchievmentDisplay : MonoBehaviour {
 
     public void GatherHealth()
     {
+        if (achievment != null)
+        {
+
         if (achievment.achievementType == AchievmentType.GATHERHEALTH)
         {
             if (currentTime <= 0)
@@ -201,6 +212,7 @@ public class AchievmentDisplay : MonoBehaviour {
                 CheckForProgress();
             }
             currentTime -= Time.deltaTime;
+        }
         }
     }
     //FindSecrets Achievement
@@ -236,7 +248,7 @@ public class AchievmentDisplay : MonoBehaviour {
     public void FoundSecretLevel()
     {
         if (achievment.achievementType == AchievmentType.COLLECTHAT)
-        {            
+        {           
             currentProgress++;            
             UpdateGUI();
             CheckForProgress();
