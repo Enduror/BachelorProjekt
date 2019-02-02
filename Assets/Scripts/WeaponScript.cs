@@ -52,8 +52,7 @@ public class WeaponScript : MonoBehaviour {
            
             AudioManager.Play("sound_player_hitwall");
             if(achievmentDisplay!=null)
-            achievmentDisplay.WallHitCounter();
-            
+                achievmentDisplay.WallHitCounter();            
             
             
             Destroy(Instantiate(wallEmiter, tip.position, tip.rotation), 10);
@@ -67,6 +66,11 @@ public class WeaponScript : MonoBehaviour {
             Vector3 relativePos = collision.GetComponent<Transform>().position - transform.position;
             Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
             Destroy(Instantiate(tomatoBlood, collision.transform.position, rotation), 10);            
+        }
+
+        if (collision.CompareTag("FinalBoss"))
+        {
+            collision.GetComponent<HealthSystem>().finalBossHit = true;           
         }
         
     }

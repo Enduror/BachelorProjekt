@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d7837fedd031d14b936bf02899cd184, type: 3}
-  m_Name: Achievment_Destroy50Vases
+  m_Name: Achievment_HotFork
   m_EditorClassIdentifier: 
-  questText: Destroy 119 vases
-  progressText: 0 / 50
+  questText: Find a way to heat your fork
+  progressText: 0 / 3
   currentProgress: 0
-  targetProgress: 119
+  targetProgress: 1
   inUse: 0
   picture: {fileID: 0}
   checkMark: {fileID: 0}
-  achievementType: 2
+  achievementType: 11

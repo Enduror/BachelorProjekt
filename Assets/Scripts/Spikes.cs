@@ -22,7 +22,7 @@ public class Spikes : MonoBehaviour {
         }
         catch
         {
-            Debug.Log("MistakesWereMade");
+            
         }
     }
 

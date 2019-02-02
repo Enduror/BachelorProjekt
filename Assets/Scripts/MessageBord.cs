@@ -5,21 +5,23 @@ using UnityEngine.UI;
 
 public class MessageBord : MonoBehaviour {
 
-    public Animator messageBoard;
+    public GameObject messageBoard;
     public Text messageBoardText;
-    public float timer;
 
-	
-
-public void OpenMessage(string text)
+    private void Start()
     {
-        messageBoardText.text = text;
-        messageBoard.SetTrigger("open");
+        messageBoard = GameObject.FindGameObjectWithTag("MessageBox");
     }
-    public void CloseMessage()
+    
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-            messageBoard.SetTrigger("close");
-
+        messageBoard.SetActive(true);
     }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        messageBoard.SetActive(false);
+    }
+
+
 }
 

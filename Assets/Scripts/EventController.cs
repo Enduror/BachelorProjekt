@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class EventController : MonoBehaviour {
 
 
-
+   public bool menueIsOpen;
     public AudioManager audioManager;
     public Texture2D cursorTexture;
     private Vector2 cursorHotspot;
@@ -68,14 +68,27 @@ public class EventController : MonoBehaviour {
     {
         cursorHotspot = new Vector2(cursorTexture.width / 2, cursorTexture.height / 2);
         Cursor.SetCursor(cursorTexture, cursorHotspot, CursorMode.Auto);
+        menueIsOpen = false;
+
+        canvasManager.menuePanel.SetActive(false);
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("Quit dat Shit");
-            Application.Quit();
+            menueIsOpen = !menueIsOpen;
+            canvasManager.menuePanel.SetActive(menueIsOpen);
+            if (menueIsOpen)
+            {
+                Time.timeScale = 0;
+                audioManager.enabled = false;
+            }
+            else
+            {
+                Time.timeScale = 1;
+                audioManager.enabled = true;
+            }
         }
     }
 
@@ -92,6 +105,9 @@ public class EventController : MonoBehaviour {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         audioManager.RestartAll();
         playerController.ActivateChildrenOnStart();
+        Time.timeScale = 1;
+        audioManager.enabled = true;
+        
     }    
 
     public void ReplayAll()
@@ -106,16 +122,7 @@ public class EventController : MonoBehaviour {
         Application.Quit();
     }
 
-    public void FinalBoss()
-    {
-        if (playerController.levelCounter == 13&& finalBoss==null)
-        { 
-
-             replayAllButton.SetActive(true);
-            canvasManager.menuePanel.SetActive(true);
-        }       
-
-    }
+    
 
 
     public void MouseScript()

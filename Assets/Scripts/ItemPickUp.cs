@@ -22,7 +22,7 @@ public class ItemPickUp : MonoBehaviour {
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {        
-        if (gameObject.name == "Crown" && collision.CompareTag("PlayerCollider"))
+        if (gameObject.name == "Crown(Clone)" && collision.CompareTag("PlayerCollider"))
         {
             collision.GetComponentInParent<PlayerController>().ActivateCrownMode();
             Destroy(gameObject);
@@ -36,7 +36,7 @@ public class ItemPickUp : MonoBehaviour {
             }
             Destroy(gameObject,0.4f);
         }
-        if (gameObject.name == "SunGlases" && collision.CompareTag("PlayerCollider"))
+        if (gameObject.name == "SunGlases(Clone)" && collision.CompareTag("PlayerCollider"))
         {
             collision.GetComponentInParent<PlayerController>().ActivateSunglases();
             Destroy(gameObject);

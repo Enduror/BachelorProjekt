@@ -11,6 +11,7 @@ public class SwitchLevelScript : MonoBehaviour {
     public AudioManager audioManager;
     public GameObject achievements;
     public AchievmentDisplay achievmentDisplay;
+    public AchievmentDisplay speedRunDisplay;
 
     public float currentTime;
     public string saveTime;
@@ -36,14 +37,17 @@ public class SwitchLevelScript : MonoBehaviour {
         {
             PlayerPrefs.SetString("FoundSecretLevel", "False");
         }
+
+        // Questzuweisung
+
         try
         {
             achievmentDisplay = GameObject.FindGameObjectWithTag("CollectAHatAchievement").GetComponent<AchievmentDisplay>();
-        }
-        catch
-        {
+        }        catch{}
+        
 
-        }
+
+        //Bug mit dem animationScreen
 
         try
         {
@@ -55,7 +59,16 @@ public class SwitchLevelScript : MonoBehaviour {
     private void Update()
     {
         currentTime += Time.deltaTime;
+        try
+        {
 
+        if (GameObject.FindGameObjectWithTag("SpeedRun").GetComponent<AchievmentDisplay>()!=null && speedRunDisplay==null)
+        {
+            speedRunDisplay = GameObject.FindGameObjectWithTag("SpeedRun").GetComponent<AchievmentDisplay>();
+        }
+
+        }
+        catch { }
     }
 
     // Update is called once per frame
@@ -80,24 +93,42 @@ public class SwitchLevelScript : MonoBehaviour {
 
         PlayerPrefs.SetString("Time",saveTime);
 
-        
+        if (speedRunDisplay != null && currentTime <= 60)
+        {
+            speedRunDisplay.UnderAMinute();
+        }
+        else
+        {
+            Debug.Log("Speedrunisnulll");
+        }
 
+        if (levelToLoad == 1)
+        {
+            player.GetComponent<PlayerController>().levelCounter = 1;
+        }
+        else
+        {
+            DontDestroyOnLoad(player);
+        }
         DontDestroyOnLoad(achievements);
         DontDestroyOnLoad(audioManager);
-        DontDestroyOnLoad(player);
 
-        
+        if (levelToLoad==99)
+        {
             PlayerPrefs.SetString("FoundSecretLevel", "true");
-            SceneManager.LoadScene("Level" + levelToLoad);
-            if (achievmentDisplay != null)
-            {
-                achievmentDisplay.FoundSecretLevel();
+        }      
+          
+        SceneManager.LoadScene("Level" + levelToLoad);
+
+        if (achievmentDisplay != null)
+        {
+            achievmentDisplay.FoundSecretLevel();
         }       
         
             
         
 
-            yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.5f);
 
     }
 }

@@ -17,12 +17,19 @@ public class PlayerController : MonoBehaviour {
     private Vector2 playerDirection2D;
     private GameObject spawnPoint;
 
+
+    //Hats
+
     public GameObject hat_Crown;
     public GameObject hat_StrawHat;
     public GameObject sunglases;
 
+    //achievements
+
     public AchievmentDisplay achievmentDisplay;
 
+
+    //particles
     public GameObject fireParticles;
 
     //PlayerDirection
@@ -38,8 +45,9 @@ public class PlayerController : MonoBehaviour {
     public int startHealth;
     public GameObject playerBlood;
 
-    
 
+    
+    
     public int levelCounter;
 
     //MastermindS

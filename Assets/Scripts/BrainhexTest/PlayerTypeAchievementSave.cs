@@ -29,7 +29,7 @@ public class PlayerTypeAchievementSave : MonoBehaviour {
    
     public void StartGame()
     {
-        playerresults[0].value =int.Parse(socialiserValueInput.text);
+        playerresults[0].value = int.Parse(socialiserValueInput.text);
         playerresults[2].value = int.Parse(mastermindValueInput.text);
         playerresults[1].value = int.Parse(achieverValueInput.text);
         playerresults[4].value = int.Parse(conquerorValueInput.text);

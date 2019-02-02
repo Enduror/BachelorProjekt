@@ -40,6 +40,7 @@ public class AchievementDistributor : MonoBehaviour {
         catch{
             primaryPlayerType = random;
             secondaryPlayerType = random;
+            
            
         }
         
@@ -69,9 +70,8 @@ public class AchievementDistributor : MonoBehaviour {
         }
         else if (primaryPlayerType == mastermind)
         {
-            layout[0].GetComponent<AchievmentDisplay>().achievment = mastermindAchievements[0];
-            var rng = Random.Range(0, randomAchievments.Length - 2);
-            layout[1].GetComponent<AchievmentDisplay>().achievment = randomAchievments[rng];
+            layout[0].GetComponent<AchievmentDisplay>().achievment = mastermindAchievements[0];            
+            layout[1].GetComponent<AchievmentDisplay>().achievment = mastermindAchievements[1];
         }
         else if (primaryPlayerType == conqueror)
         {
@@ -80,10 +80,19 @@ public class AchievementDistributor : MonoBehaviour {
         }
         else if (primaryPlayerType == socializer)
         {
+            Debug.Log("GotHere");
             var rng = Random.Range(0, randomAchievments.Length - 2);
             layout[1].GetComponent<AchievmentDisplay>().achievment = randomAchievments[rng];
-             rng = Random.Range(0, randomAchievments.Length - 2);
-            layout[0].GetComponent<AchievmentDisplay>().achievment = randomAchievments[rng];
+
+            var  rng2 = Random.Range(0, randomAchievments.Length - 2);
+            if (rng2 == rng)
+            {
+                rng2 = Random.Range(0, randomAchievments.Length - 2);
+            }
+
+            layout[0].GetComponent<AchievmentDisplay>().achievment = randomAchievments[rng2];
+
+
         }
         else if (primaryPlayerType == achiever)
         {
@@ -124,11 +133,19 @@ public class AchievementDistributor : MonoBehaviour {
         {
             layout[2].GetComponent<AchievmentDisplay>().achievment = achieverAchievements[0];
         }
+
+
+        // absicherung falls Typ 0 und 2 oder 0 und 1 sich gleichen dann rerole
+
         
 
+            if (layout[0].GetComponent<AchievmentDisplay>().achievment.achievementType == layout[2].GetComponent<AchievmentDisplay>().achievment.achievementType || layout[1].GetComponent<AchievmentDisplay>().achievment.achievementType == layout[2].GetComponent<AchievmentDisplay>().achievment.achievementType)
+            {
+                var rng = Random.Range(0, randomAchievments.Length - 2);
+                layout[2].GetComponent<AchievmentDisplay>().achievment = randomAchievments[rng];
+            }
 
       
-
 
     }
 

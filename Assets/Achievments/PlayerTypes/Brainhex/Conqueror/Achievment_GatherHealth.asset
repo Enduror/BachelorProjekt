@@ -4,14 +4,15 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d7837fedd031d14b936bf02899cd184, type: 3}
   m_Name: Achievment_GatherHealth
   m_EditorClassIdentifier: 
-  questText: Gather 10 Health
+  questText: Reach 10 health
   progressText: 0 / 50
   currentProgress: 0
   targetProgress: 10

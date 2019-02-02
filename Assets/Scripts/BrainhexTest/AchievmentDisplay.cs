@@ -17,6 +17,7 @@ public class AchievmentDisplay : MonoBehaviour {
     public Text progressText;
     public Image image;
     public Image checkMark;
+    public Image xMark;
     
     public int currentProgress;
     public int targetProgress;
@@ -32,6 +33,8 @@ public class AchievmentDisplay : MonoBehaviour {
     // needs to be reset after game;
 
     public bool playerDiedRecently;
+
+    public bool hitTheBoss;
     
 
     void Start () {
@@ -42,6 +45,10 @@ public class AchievmentDisplay : MonoBehaviour {
 
         player = FindObjectOfType <PlayerController>();
         playerDiedRecently = false;
+
+        checkMark.enabled = false;
+        xMark.enabled = false;
+    
 
 
 
@@ -77,6 +84,22 @@ public class AchievmentDisplay : MonoBehaviour {
             {
                 gameObject.tag = "CollectAHatAchievement";
             }
+            if (achievment.achievementType == AchievmentType.SECONDLAP)
+            {
+                gameObject.tag = "SecondLap";
+            }
+            if (achievment.achievementType == AchievmentType.SPEEDRUN)                
+            {
+                gameObject.tag = "SpeedRun";
+            }
+            if (achievment.achievementType == AchievmentType.KILLBOSSWITHOUTWEAPON)
+            {
+                gameObject.tag = "NoWeaponAchievement";
+            }
+            if (achievment.achievementType == AchievmentType.HOTFORK)
+            {
+                gameObject.tag = "HotFork";
+            }
         }
 
         if (!achievementIsDone)
@@ -87,13 +110,6 @@ public class AchievmentDisplay : MonoBehaviour {
             //GatherHealthQuest called to often
             GatherHealth();
         }
-        
-        
-        
-
-        
-
-       
     }  
     // sets the Guian the beginning
     public void SetGui()
@@ -102,10 +118,7 @@ public class AchievmentDisplay : MonoBehaviour {
         targetProgress = achievment.targetProgress;
 
         questText.text = achievment.questText;
-        progressText.text = achievment.currentProgress + "/" + achievment.targetProgress;
-
-        image = achievment.picture;
-        checkMark = achievment.checkMark;
+        progressText.text = achievment.currentProgress + "/" + achievment.targetProgress;       
     }
 
 
@@ -154,6 +167,7 @@ public class AchievmentDisplay : MonoBehaviour {
         if (achievementIsDone == false)
         {            
             progressText.text = currentProgress + "/" + targetProgress;
+            
         }       
     }
 
@@ -164,6 +178,7 @@ public class AchievmentDisplay : MonoBehaviour {
             achievementIsDone = true;
             progressText.text = "";            
             audioManager.Play("sound_achievements_done");
+            checkMark.enabled = true;
             
         }
     }
@@ -250,6 +265,50 @@ public class AchievmentDisplay : MonoBehaviour {
         if (achievment.achievementType == AchievmentType.COLLECTHAT)
         {           
             currentProgress++;            
+            UpdateGUI();
+            CheckForProgress();
+        }
+    }
+    public void SecondLap()
+    {
+        if (achievment.achievementType == AchievmentType.SECONDLAP)
+        {
+            currentProgress++;
+            UpdateGUI();
+            CheckForProgress();
+        }
+    }
+    public void UnderAMinute()
+    {
+        if (achievment.achievementType == AchievmentType.SPEEDRUN)
+        {
+            currentProgress++;
+            UpdateGUI();
+            CheckForProgress();
+        }
+    }
+
+    public void NoWeaponBoss()
+    {
+        if(achievment.achievementType== AchievmentType.KILLBOSSWITHOUTWEAPON)
+        {
+            if (!hitTheBoss)
+            {
+                currentProgress++;
+                UpdateGUI();
+                CheckForProgress();
+            }else
+            {
+                xMark.enabled = true;
+            }
+        }
+    }
+
+    public void HotFork()
+    {
+        if (achievment.achievementType == AchievmentType.HOTFORK)
+        {
+            currentProgress++;
             UpdateGUI();
             CheckForProgress();
         }
