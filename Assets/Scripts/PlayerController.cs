@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
+    public static PlayerController Instance;
+
     // AUdioManager
     public AudioManager audioManager;
     //PlayerMovement
@@ -55,6 +57,14 @@ public class PlayerController : MonoBehaviour {
 
     private void Awake()
     {
+        if (Instance == null)
+            Instance = this;
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         health = startHealth;
         audioManager = FindObjectOfType<AudioManager>();
         

@@ -6,11 +6,9 @@ using UnityEngine.UI;
 
 public class DataToSaveScript : MonoBehaviour
 {
-    private static DataToSaveScript Instance { get; set; }
-
-    //
-    public int playerID;
-    public Button saveButton;
+    public static DataToSaveScript Instance { get; set; }
+    
+    public static bool isRealTest;
 
     //PlayerTypeValues
     public static int Socializer_SaveValue;//
@@ -62,19 +60,9 @@ public class DataToSaveScript : MonoBehaviour
     public static bool BladeRun_SaveValue;//
     public static int SteppedOn5TrapsCounter_SaveValue;//
     public static bool SteppedOn5Traps_SaveValue;//
-
     
-    
-
-
     public static int  AchievementsDoneCounter_SaveValue;//
     public static bool AllAchievementsDone_SaveValue;//
-
-
-   
-    
-    
-    
 
     private void Awake()
     {
@@ -112,20 +100,27 @@ public class DataToSaveScript : MonoBehaviour
         }       
     }
 
-    void SaveAllData()
+    public static void SaveAllData()
     {
-        string path = Application.dataPath + "/DataToSave.txt";
-
-
+        string path = Application.dataPath + "/DataToSave.csv";
+        
         if (!File.Exists(path))
         {
             Debug.Log("SavedData");
-            File.WriteAllText(path, "DataToSave\n\n");
+            File.WriteAllText(path, "PlayerID;Socializer_SaveValue;Achiever_SaveValue;\n");
         }
+
+        File.AppendAllText(path, PlayerPrefs.GetInt("PlayerID") + ";" + Socializer_SaveValue + ";" + Achiever_SaveValue + ";" +"\n");
+        PlayerPrefs.SetInt("PlayerID", PlayerPrefs.GetInt("PlayerID") + 1);
+
         Debug.Log("SaveButton");
     }
 
-
+    private void OnApplicationQuit()
+    {
+        if (isRealTest)
+            SaveAllData();
+    }
 
 
 

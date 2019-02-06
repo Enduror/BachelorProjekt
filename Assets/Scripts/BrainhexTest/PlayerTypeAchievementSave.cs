@@ -21,6 +21,7 @@ public class PlayerTypeAchievementSave : MonoBehaviour {
     public InputField daredevilValueInput;
     public InputField seekerValueInput;
 
+    public Toggle isRealTest;
 
     public playerResults[] playerresults;
 
@@ -48,7 +49,10 @@ public class PlayerTypeAchievementSave : MonoBehaviour {
         DataToSaveScript.Survivor_SaveValue = playerresults[5].value;
         DataToSaveScript.Daredevil_SaveValue = playerresults[6].value;
         DataToSaveScript.Seeker_SaveValue = playerresults[3].value;
-        
+
+
+
+        DataToSaveScript.isRealTest = isRealTest.isOn;
 
     }
 

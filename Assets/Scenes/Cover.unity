@@ -1910,8 +1910,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3a73456e9f9d244da5266bd57a45631, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerID: 0
-  saveButton: {fileID: 0}
 --- !u!4 &586249214
 Transform:
   m_ObjectHideFlags: 0
@@ -3159,7 +3157,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &1384144474
 GameObject:
   m_ObjectHideFlags: 0
@@ -4610,6 +4608,7 @@ MonoBehaviour:
   survirorValueInput: {fileID: 618928169}
   daredevilValueInput: {fileID: 1934186874}
   seekerValueInput: {fileID: 1491963571}
+  isRealTest: {fileID: 1347333122}
   playerresults:
   - {fileID: 1015672699}
   - {fileID: 709742968}
