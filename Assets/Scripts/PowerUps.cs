@@ -22,23 +22,35 @@ public class PowerUps : MonoBehaviour {
 
     public void PickUp()
     {
-        if (pickedUp == false) { 
+        if (pickedUp == false) {
+            DataToSaveScript.CollectedPickUps_SaveValue++;
         pickedUp = true;
         if (type == 0)
         {
-            player.health += 1;            
+            player.health += 1;
+                DataToSaveScript.GatheredHealth_SaveValue++;
 
         }
         if (type == 1)
         {
             player.moveSpeed += 2;
+                DataToSaveScript.MaxSpeed_SaveValue = player.moveSpeed;
+                if (player.moveSpeed >= 30)
+                {
+                    DataToSaveScript.BrokeTheGame_SaveValue = true;
+                }
         }
         if (type == 2)
         {
             if (weapon.transform.localScale.x <= 1)
             {
                 weapon.transform.localScale *= 1.3f;
-            }
+                }
+                else
+                {
+                    DataToSaveScript.BrokeTheGame_SaveValue = true;
+                }
+                
         }
         }
     }

@@ -10,7 +10,11 @@ public class Bladerunner_StartBox : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.CompareTag("PlayerCollider"))
+        {
+
         blades.GetComponent<Bladerunner>().startBladeRun = true;
         deletedGround.SetActive(false);
+        }
     }
 }

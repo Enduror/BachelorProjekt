@@ -32,7 +32,8 @@ public class Vase : MonoBehaviour {
         if (isBroken == false && (collision.tag == "PlayerCollider"||collision.tag=="Weapon"))
         {
             if (isBroken == false) { Destroy(Instantiate(vaseParticle, transform.position, Quaternion.identity), 2); }
-           
+
+            DataToSaveScript.VasesDestroyed_SaveValue++;
             GetComponent<Collider2D>().enabled = false;
             vaseAnim.SetTrigger("Shatter");
             gameObject.GetComponent<AudioSource>().Play();

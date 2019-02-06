@@ -51,34 +51,50 @@ public class HealthSystem : MonoBehaviour {
 
         if (health <= 0 && alive)
         {
-            if (achievmentDisplay != null)
-            {
-                if (finalBossHit)
-                {
-                    achievmentDisplay.hitTheBoss = true;
-                }
-                achievmentDisplay.NoWeaponBoss();
-            }
+            DataToSaveScript.EnemiesKilled_SaveValue++;
+           
             if (gameObject.tag == "FinalBoss")
             {
                 Instantiate(crown, transform.position, transform.rotation);
-            }
-
-            alive = false;
-            var rng = Random.Range(0, 25);
-
-            if (rng <= 1)
-            {
-                if (gameObject != null)
+                if (finalBossHit == false)
                 {
-                    Instantiate(healthPickUp, transform.position, transform.rotation);                    
+                    achievmentDisplay.NoWeaponBoss();
                 }
             }
+            else
+            {           
+                var rng = Random.Range(0, 25);
+
+                 if (rng <= 1)
+                 {
+                      if (gameObject != null)
+                     {
+                         Instantiate(healthPickUp, transform.position, transform.rotation);                    
+                     }
+                 }
+            }
+            alive = false;
             Destroy(gameObject);           
         }
     }
     public void TakeDamage(int damage)
     {
+        if (gameObject.CompareTag("FinalBoss"))
+        {            
+            DataToSaveScript.FinalBossHitCounter_SaveValue++;
+
+            if (finalBossHit == true)
+            {
+                try
+                {
+                    achievmentDisplay.hitTheBoss = true;
+                    achievmentDisplay.NoWeaponBoss();
+                }
+                catch { }
+            }
+           
+        }
+        DataToSaveScript.DamageDealt_SaveValue += damage;
         audioManager.Play("sound_tomato_death");
         health -= damage;
         if (healthBarSlider != null)

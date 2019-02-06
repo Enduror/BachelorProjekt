@@ -23,6 +23,8 @@ public class SecretFinderScript : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
+        DataToSaveScript.SecretsFoundCounter_SaveValue++;
         GetComponent<Collider2D>().enabled = false;
         audiomanager.Play("sound_player_wow");
 

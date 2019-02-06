@@ -31,6 +31,7 @@ public class Spikes : MonoBehaviour {
     {
         if (collision.tag == "PlayerCollider")
         {
+            DataToSaveScript.SteppedOn5TrapsCounter_SaveValue++;
             anim.SetTrigger("Spike");
             player.GetComponentInParent<PlayerController>().TakeDamage(spikeDamage);
             GetComponent<BoxCollider2D>().enabled = false;
@@ -44,6 +45,7 @@ public class Spikes : MonoBehaviour {
         }
         if (collision.tag == "FinalBoss")
         {
+            DataToSaveScript.FinalBossSpikeCounter_SaveValue++;
             anim.SetTrigger("Spike");
             collision.GetComponent<HealthSystem>().TakeDamage(25);
             Instantiate(finalBossBlood, collision.transform.position, Quaternion.identity);

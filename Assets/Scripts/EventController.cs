@@ -101,7 +101,7 @@ public class EventController : MonoBehaviour {
 
     public void RestartGame()
     {
-        
+        DataToSaveScript.NumberOfRestarts_SaveValue++;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         audioManager.RestartAll();
         playerController.ActivateChildrenOnStart();

@@ -31,6 +31,7 @@ public class FireSide : MonoBehaviour {
 
             weaponFire.GetComponent<FireWeapon>().isBurning = true;
             weaponFire.GetComponent<FireWeapon>().CheckForWeapon();
+            DataToSaveScript.SetTheForkOnFire_SaveValue = true;
             if (achievmentDisplay != null)
             {
                 achievmentDisplay.HotFork();

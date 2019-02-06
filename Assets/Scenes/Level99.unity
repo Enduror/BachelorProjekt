@@ -1183,7 +1183,7 @@ PrefabInstance:
     - target: {fileID: 114034326698600544, guid: 214e0de43597ca74185f8e66b7ef0296,
         type: 3}
       propertyPath: levelToLoad
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4703249443134890, guid: 214e0de43597ca74185f8e66b7ef0296, type: 3}
       propertyPath: m_LocalPosition.x

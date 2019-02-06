@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour {
     public GameObject playerBlood;
 
 
-    
+
     
     public int levelCounter;
 
@@ -100,7 +100,9 @@ public class PlayerController : MonoBehaviour {
 
         if (spawnPoint == null) { 
         spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
-         }   
+         }
+        
+
     }
 
 
@@ -121,6 +123,7 @@ public class PlayerController : MonoBehaviour {
             {               
                 realPlayerAnim.SetBool("isRunning", false);
                 audioManager.Play("sound_player_running");
+                DataToSaveScript.IdleTime_SaveValue += Time.deltaTime;
                 
             }
             transform.Translate(x, y, 0);
@@ -172,11 +175,17 @@ public class PlayerController : MonoBehaviour {
 
     public void TakeDamage(int damage)
     {
+
         health -= damage;
         Destroy(Instantiate(playerBlood, transform.position, transform.rotation), 2);
-        
+
+        DataToSaveScript.DamageReceived_SaveValue += damage;
+
         if (health <= 0)
         {
+
+            DataToSaveScript.LevelPlayerDied_SaveValue.Add(SceneManager.GetActiveScene().name);
+            DataToSaveScript.PlayerDeathCounter_SaveValue ++;
             audioManager.StopAll();
 
             audioManager.Play("sound_player_death");

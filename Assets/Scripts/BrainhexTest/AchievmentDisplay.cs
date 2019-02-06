@@ -179,6 +179,7 @@ public class AchievmentDisplay : MonoBehaviour {
             progressText.text = "";            
             audioManager.Play("sound_achievements_done");
             checkMark.enabled = true;
+            DataToSaveScript.AchievementsDoneCounter_SaveValue++;
             
         }
     }

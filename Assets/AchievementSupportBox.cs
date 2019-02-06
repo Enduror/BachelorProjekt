@@ -20,7 +20,14 @@ public class AchievementSupportBox : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (achievmentDisplay != null)
-            achievmentDisplay.SecondLap();
+        if (collision.CompareTag("PlayerCollider"))
+        {
+           if( achievmentDisplay != null)
+            {
+                achievmentDisplay.SecondLap();
+            }
+            DataToSaveScript.BladeRun_SaveValue = true;
+        }
+            
     }
 }

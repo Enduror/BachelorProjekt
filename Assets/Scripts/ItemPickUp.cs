@@ -25,6 +25,7 @@ public class ItemPickUp : MonoBehaviour {
         if (gameObject.name == "Crown(Clone)" && collision.CompareTag("PlayerCollider"))
         {
             collision.GetComponentInParent<PlayerController>().ActivateCrownMode();
+            audioManager.Play("sound_player_wow");
             Destroy(gameObject);
         }
         if (gameObject.name == "StrawHat" && collision.CompareTag("PlayerCollider"))
@@ -34,13 +35,15 @@ public class ItemPickUp : MonoBehaviour {
             {                
                 achievmentDisplay.FoundSecretLevel();
             }
+            audioManager.Play("sound_player_wow");
             Destroy(gameObject,0.4f);
         }
         if (gameObject.name == "SunGlases(Clone)" && collision.CompareTag("PlayerCollider"))
         {
             collision.GetComponentInParent<PlayerController>().ActivateSunglases();
+            audioManager.Play("sound_player_wow");
             Destroy(gameObject);
         }
-        audioManager.Play("sound_player_wow");
+        
     }
 }

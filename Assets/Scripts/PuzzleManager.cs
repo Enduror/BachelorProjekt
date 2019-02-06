@@ -70,6 +70,7 @@ public class PuzzleManager : MonoBehaviour {
                 firstPuzzleDone = true;
                 audioManager.Play("sound_achievements_done");
                 SpawnItem();
+                DataToSaveScript.PuzzlesSolvedCounter_SaveValue++;
                 break;
 
             case 4:
@@ -103,6 +104,7 @@ public class PuzzleManager : MonoBehaviour {
                 progress++;
                 audioManager.Play("sound_achievements_done");
                 SpawnItem();
+                DataToSaveScript.PuzzlesSolvedCounter_SaveValue++;
                 break;
             case 8:
 
@@ -134,6 +136,8 @@ public class PuzzleManager : MonoBehaviour {
                 audioManager.Play("sound_achievements_done");
                 Instantiate(pickUp[2], new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 5, 0), Quaternion.identity);
                 progress++;
+                DataToSaveScript.PuzzlesSolvedCounter_SaveValue++;
+                DataToSaveScript.AllPuzzlesSolved_SaveValue=true;
                 // reward ++;
                 break;
         }

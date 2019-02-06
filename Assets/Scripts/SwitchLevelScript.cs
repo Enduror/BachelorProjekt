@@ -105,6 +105,8 @@ public class SwitchLevelScript : MonoBehaviour {
         if (levelToLoad == 1)
         {
             player.GetComponent<PlayerController>().levelCounter = 1;
+            DataToSaveScript.TimeToFinishGame_SaveValue = DataToSaveScript.TotalPlayTime_SaveValue;
+            DataToSaveScript.FinishedTheGame_SaveValue = true;
         }
         else
         {
@@ -115,15 +117,16 @@ public class SwitchLevelScript : MonoBehaviour {
 
         if (levelToLoad==99)
         {
-            PlayerPrefs.SetString("FoundSecretLevel", "true");
+            DataToSaveScript.FoundSecretlevel_SaveValue = true;
+
+            if (achievmentDisplay != null)
+            {
+                achievmentDisplay.FoundSecretLevel();
+            }
         }      
           
         SceneManager.LoadScene("Level" + levelToLoad);
-
-        if (achievmentDisplay != null)
-        {
-            achievmentDisplay.FoundSecretLevel();
-        }       
+     
         
             
         

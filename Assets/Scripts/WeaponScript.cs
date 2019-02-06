@@ -40,6 +40,7 @@ public class WeaponScript : MonoBehaviour {
         //anim.SetTrigger("shake");
         if (collision.name == "GroundManager")
         {
+            DataToSaveScript.WallHits_SaveValue++;
             try
             {
                 anim.SetTrigger("shake");
@@ -62,16 +63,17 @@ public class WeaponScript : MonoBehaviour {
         if (collision.GetComponent<Collider2D>().gameObject.layer==LayerMask.NameToLayer("Enemy"))
         {
             anim.SetTrigger("shake");
+            if (collision.GetComponentInParent<Transform>().CompareTag("FinalBoss"))
+            {                
+                collision.GetComponent<HealthSystem>().finalBossHit = true;
+            }
             collision.GetComponentInParent<HealthSystem>().TakeDamage(damage);
             Vector3 relativePos = collision.GetComponent<Transform>().position - transform.position;
             Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
             Destroy(Instantiate(tomatoBlood, collision.transform.position, rotation), 10);            
         }
 
-        if (collision.CompareTag("FinalBoss"))
-        {
-            collision.GetComponent<HealthSystem>().finalBossHit = true;           
-        }
+       
         
     }
 }

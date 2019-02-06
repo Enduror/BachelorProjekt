@@ -37,7 +37,19 @@ public class PlayerTypeAchievementSave : MonoBehaviour {
         playerresults[6].value = int.Parse(daredevilValueInput.text);
         playerresults[3].value = int.Parse(seekerValueInput.text);
 
-        CalculateHighest2();             
+        CalculateHighest2();
+
+        //Save it into DataToSave
+
+        DataToSaveScript.Socializer_SaveValue = playerresults[0].value;
+        DataToSaveScript.Mastermind_SaveValue = playerresults[2].value;
+        DataToSaveScript.Achiever_SaveValue = playerresults[1].value;
+        DataToSaveScript.Conqueror_SaveValue = playerresults[4].value;
+        DataToSaveScript.Survivor_SaveValue = playerresults[5].value;
+        DataToSaveScript.Daredevil_SaveValue = playerresults[6].value;
+        DataToSaveScript.Seeker_SaveValue = playerresults[3].value;
+        
+
     }
 
     public void CalculateHighest2()
@@ -50,11 +62,13 @@ public class PlayerTypeAchievementSave : MonoBehaviour {
             {
                 a.first = true;
                 primaryType = a.type;
+                DataToSaveScript.PrimaryType_SaveValue = primaryType;
             }
             if (a.value == results[5])
             {
                 a.second = true;
                 secondaryType = a.type;
+                DataToSaveScript.SecondaryType_SaveValue = secondaryType;
             }
         }
         
