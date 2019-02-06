@@ -1,0 +1,126 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1858413463438098}
+  m_IsPrefabAsset: 1
+--- !u!1 &1858413463438098
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4249781310790794}
+  - component: {fileID: 114204746586929914}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4249781310790794
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1858413463438098}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -935, y: 124.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114204746586929914
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1858413463438098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9704c1ad80754ec45b6a42af5cc39361, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: sound_tomato_death
+    clip: {fileID: 8300000, guid: 5c2890c22d93e164aa143e0aa161559f, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: sound_player_idle
+    clip: {fileID: 8300000, guid: 9d694223178b0d4408808be85bc5a443, type: 3}
+    volume: 0.2
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+  - name: sound_player_running
+    clip: {fileID: 8300000, guid: 7125121da66f0a340a6eb5a2e238ac79, type: 3}
+    volume: 0.7
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+  - name: sound_player_death
+    clip: {fileID: 8300000, guid: 073b650f44cb39c4cae917cfe7d7151b, type: 3}
+    volume: 0.092
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: sound_player_hurt
+    clip: {fileID: 8300000, guid: a8595bdb8e35fb04c84d6bd797e0f9bb, type: 3}
+    volume: 0.127
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: sound_player_steponglas
+    clip: {fileID: 8300000, guid: f3f983a8b4c540147ab8f8ab5e9458c5, type: 3}
+    volume: 0.142
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: sound_player_hitwall
+    clip: {fileID: 8300000, guid: 53136da6419f86a47a72488600dad419, type: 3}
+    volume: 0.179
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: sound_player_hitvase
+    clip: {fileID: 8300000, guid: 719c12d2918362f4186a86444862d7c0, type: 3}
+    volume: 0.063
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: sound_player_wow
+    clip: {fileID: 8300000, guid: aeb0888c58b40594c8f8cb0a4d62fe72, type: 3}
+    volume: 0.308
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: sound_achievements_ohh
+    clip: {fileID: 8300000, guid: 92509b3acaf9d7948a3e1f959f739225, type: 3}
+    volume: 0.308
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: sound_achievements_done
+    clip: {fileID: 8300000, guid: f8a86d040cbd8f24f8269b4ba46ab0b6, type: 3}
+    volume: 0.308
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: 2
+    clip: {fileID: 8300000, guid: aeb0888c58b40594c8f8cb0a4d62fe72, type: 3}
+    volume: 0.544
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0

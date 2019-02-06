@@ -1,17 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.IO;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class CanvasManager : MonoBehaviour {
+
+public class CanvasManager : MonoBehaviour
+{
 
     // hearthContainers
     public GameObject hearthContrainer;
-    public Transform spawnHealthPoint;
-    public Vector3 currentLocation;
     public PlayerController player;
+    public Button SaveAllDataButton;
 
+
+    // achievmentPanel 
+    public Animator anim;
+
+
+    public GameObject menuePanel;
     public GameObject restartButton;
     public GameObject QuitButton;
 
@@ -19,10 +27,19 @@ public class CanvasManager : MonoBehaviour {
     public Sprite fullHearts;
     public Sprite emptyHearts;
 
+
+
+   
+
     public GameObject transitionScreen;
     private void Awake()
     {
-        transitionScreen.SetActive(true);
+        // transitionScreen.SetActive(true);
+    }
+    public void Start()
+    {
+
+        player = FindObjectOfType<PlayerController>();
     }
 
     private void Update()
@@ -41,11 +58,9 @@ public class CanvasManager : MonoBehaviour {
 
         if (!player.isAlive)
         {
-            restartButton.SetActive(true);
-            QuitButton.SetActive(true);
+            menuePanel.SetActive(true);
         }
 
     }
 
-    
 }

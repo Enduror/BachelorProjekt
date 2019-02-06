@@ -2,17 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
+    public static PlayerController Instance;
 
+    // AUdioManager
+    public AudioManager audioManager;
     //PlayerMovement
     public bool isAlive;
 	public float moveSpeed;
     public Rigidbody2D rb;
     public Vector3 moveVector3;
     public Animator realPlayerAnim;
-    private Vector2 playerDirection2D;       
+    private Vector2 playerDirection2D;
+    private GameObject spawnPoint;
+
+
+    //Hats
+
+    public GameObject hat_Crown;
+    public GameObject hat_StrawHat;
+    public GameObject sunglases;
+
+    //achievements
+
+    public AchievmentDisplay achievmentDisplay;
+
+
+    //particles
+    public GameObject fireParticles;
 
     //PlayerDirection
     public float offset;
@@ -29,19 +49,41 @@ public class PlayerController : MonoBehaviour {
 
 
 
+    
+    public int levelCounter;
+
+    //MastermindS
+
+
     private void Awake()
     {
+        if (Instance == null)
+            Instance = this;
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         health = startHealth;
+        audioManager = FindObjectOfType<AudioManager>();
         
     }
 
     private void Start()
     {
+        levelCounter = 1;
         hasWeapon = false;
+        fireParticles.GetComponent<FireWeapon>().CheckForWeapon();
         Weapon.SetActive(false);
-        
+
+       
+
+       
+
         isAlive = true;
-        
+        //audioManager.Play("sound_player_idle");
+       
     }
 
     //Physics
@@ -49,9 +91,30 @@ public class PlayerController : MonoBehaviour {
     private void FixedUpdate()
     {
         PlayerMovement();
-        PlayerDirection();        
+        PlayerDirection();     
 
     }
+    private void Update()
+    {
+        if (achievmentDisplay == null&& levelCounter<2)
+        {
+            try
+            {
+                achievmentDisplay = GameObject.FindGameObjectWithTag("StepOnTrapsAchievement").GetComponent<AchievmentDisplay>();
+            }
+            catch
+            {
+
+            }
+        }
+
+        if (spawnPoint == null) { 
+        spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
+         }
+        
+
+    }
+
 
     private void PlayerMovement()
     {
@@ -63,10 +126,15 @@ public class PlayerController : MonoBehaviour {
             if (x != 0 || y != 0)
             {               
                 realPlayerAnim.SetBool("isRunning",true);
+                audioManager.Play("sound_player_idle");
+
             }
             else
             {               
-                realPlayerAnim.SetBool("isRunning", false);                
+                realPlayerAnim.SetBool("isRunning", false);
+                audioManager.Play("sound_player_running");
+                DataToSaveScript.IdleTime_SaveValue += Time.deltaTime;
+                
             }
             transform.Translate(x, y, 0);
             moveVector3 = new Vector3(x, y, 0);
@@ -117,31 +185,95 @@ public class PlayerController : MonoBehaviour {
 
     public void TakeDamage(int damage)
     {
+
         health -= damage;
         Destroy(Instantiate(playerBlood, transform.position, transform.rotation), 2);
+
+        DataToSaveScript.DamageReceived_SaveValue += damage;
+
         if (health <= 0)
         {
+
+            DataToSaveScript.LevelPlayerDied_SaveValue.Add(SceneManager.GetActiveScene().name);
+            DataToSaveScript.PlayerDeathCounter_SaveValue ++;
+            audioManager.StopAll();
+
+            audioManager.Play("sound_player_death");
             //GetComponentInChildren<SpriteRenderer>().enabled = false;
 
-            DisableChildrenOnDeath();
-            GetComponentInChildren<Rigidbody2D>().simulated = false;
+            try
+            {
+                achievmentDisplay.playerDiedRecently = true;                
+            }
+            catch
+            {
+                Debug.Log("DidntWork");
+            }
+           
             
-            isAlive = false;               
+            DisableChildrenOnDeath();
+                        
         }
+        else
+        {
+            audioManager.Play("sound_player_hurt");
+        }
+        
     }
 
     public void DisableChildrenOnDeath()
     {
-        foreach(Transform child in transform)
+        GetComponentInChildren<Rigidbody2D>().simulated = false;
+        isAlive = false;
+        foreach (Transform child in transform)
         {
             child.gameObject.SetActive(false);
         }
     }  
+    public void ActivateChildrenOnStart()
+    {
+        GetComponentInChildren<Rigidbody2D>().simulated = true;
+        isAlive = true;
+        foreach (Transform child in transform)
+        {
+            
+                child.gameObject.SetActive(true);
+            
+            
+        }
+        transform.position = spawnPoint.transform.position;
+        health = startHealth;
+        if (levelCounter <= 5)
+        {
+            hasWeapon = false;
+            fireParticles.GetComponent<FireWeapon>().CheckForWeapon();
+            Weapon.SetActive(false);
+        }
+        
+    }
 
     public void ActivateWeapon()
     {
         hasWeapon = true;
+        fireParticles.GetComponent<FireWeapon>().CheckForWeapon();
         Weapon.SetActive(true);
+    }
+
+    public void ActivateCrownMode()
+    {
+        hat_Crown.SetActive(true);
+        hat_StrawHat.SetActive(false);
+
+    }
+    public void ActivateStrawHatMode()
+    {
+        hat_StrawHat.SetActive(true);
+        hat_Crown.SetActive(false);
+    }
+
+    public void ActivateSunglases()
+    {
+        sunglases.SetActive(true);
     }
 
    

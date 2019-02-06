@@ -5,6 +5,9 @@ using UnityEngine;
 public class Spikes : MonoBehaviour {
     public GameObject player;
     public Animator anim;
+    public GameObject finalBossBlood;
+
+    public AchievmentDisplay achievmentDisplay;
     
    
     public int spikeDamage;
@@ -13,17 +16,43 @@ public class Spikes : MonoBehaviour {
     {
         player = GameObject.FindGameObjectWithTag("Player");
         anim = GetComponentInChildren<Animator>();
+        try
+        {
+            achievmentDisplay = GameObject.FindGameObjectWithTag("StepOnTrapsAchievement").GetComponent<AchievmentDisplay>();
+        }
+        catch
+        {
+            
+        }
     }
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "PlayerCollider")
         {
+            DataToSaveScript.SteppedOn5TrapsCounter_SaveValue++;
             anim.SetTrigger("Spike");
-            player.GetComponentInParent<PlayerController>().TakeDamage(spikeDamage);            
+            player.GetComponentInParent<PlayerController>().TakeDamage(spikeDamage);
+            GetComponent<BoxCollider2D>().enabled = false;
+            GetComponent<AudioSource>().Play();
+            gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.None;
+            
+            if (achievmentDisplay != null)
+            {
+                achievmentDisplay.SteppedOnSpike();
+            }
         }
-        GetComponent<BoxCollider2D>().enabled = false;
+        if (collision.tag == "FinalBoss")
+        {
+            DataToSaveScript.FinalBossSpikeCounter_SaveValue++;
+            anim.SetTrigger("Spike");
+            collision.GetComponent<HealthSystem>().TakeDamage(25);
+            Instantiate(finalBossBlood, collision.transform.position, Quaternion.identity);
+            GetComponent<BoxCollider2D>().enabled = false;
+            GetComponent<AudioSource>().Play();
+        }
+        
     }
 
 }

@@ -7,6 +7,22 @@ TagManager:
   - SpawnPoint
   - MessageBox
   - Weapon
+  - PlayerCollider
+  - Achievements
+  - PlayerType
+  - HitTheWallAchievement
+  - KillTomatoAchievement
+  - FindSecretsAchievement
+  - GatheHealthAchievement
+  - StepOnTrapsAchievement
+  - DestroyVasesAchievement
+  - DontDieAchievement
+  - CollectAHatAchievement
+  - FinalBoss
+  - SecondLap
+  - SpeedRun
+  - NoWeaponAchievement
+  - HotFork
   layers:
   - Default
   - TransparentFX
@@ -19,8 +35,8 @@ TagManager:
   - PostProcessing
   - Enemy
   - Wall
-  - 
-  - 
+  - Skorpion
+  - Player
   - 
   - 
   - 
@@ -61,4 +77,10 @@ TagManager:
     locked: 0
   - name: Interactables
     uniqueID: 2658321249
+    locked: 0
+  - name: Sealing
+    uniqueID: 538954461
+    locked: 0
+  - name: AboveandBeyond
+    uniqueID: 3221035047
     locked: 0

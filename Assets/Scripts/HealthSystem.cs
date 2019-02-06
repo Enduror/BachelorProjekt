@@ -1,37 +1,112 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HealthSystem : MonoBehaviour {
-    public int health;
-    public int startHealth;
+    public float health;
+    public float startHealth;
     public EventController ec;
-    
-    
-	// Use this for initialization
-	void Start () {
+    public AudioManager audioManager;
+    public GameObject healthPickUp;
+    public bool finalBossHit;
+    public Slider healthBarSlider;
+
+    public AchievmentDisplay achievmentDisplay;
+
+    public GameObject crown;
+    public bool alive;
+
+
+    // Use this for initialization
+    void Start()
+    {
+        alive = true;
         health = startHealth;
         ec = FindObjectOfType<EventController>();
-        
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        if (health <= 0)
+        audioManager = FindObjectOfType<AudioManager>();
+        try
         {
-            SpecialDeath();
-            Destroy(gameObject);            
+            achievmentDisplay = GameObject.FindGameObjectWithTag("NoWeaponAchievement").GetComponent<AchievmentDisplay>();
+        }
+        catch
+        {
+
+        }
+        if (healthBarSlider != null)
+        {
+            healthBarSlider.value = CalculateHealth();
+        }
+
+    }
+
+
+    // Update is called once per frame
+    void Update () {
+
+        //Healthbar updater
+        
+
+        //deadChecker
+
+        if (health <= 0 && alive)
+        {
+            DataToSaveScript.EnemiesKilled_SaveValue++;
+           
+            if (gameObject.tag == "FinalBoss")
+            {
+                Instantiate(crown, transform.position, transform.rotation);
+                if (finalBossHit == false)
+                {
+                    achievmentDisplay.NoWeaponBoss();
+                }
+            }
+            else
+            {           
+                var rng = Random.Range(0, 25);
+
+                 if (rng <= 1)
+                 {
+                      if (gameObject != null)
+                     {
+                         Instantiate(healthPickUp, transform.position, transform.rotation);                    
+                     }
+                 }
+            }
+            alive = false;
+            Destroy(gameObject);           
         }
     }
     public void TakeDamage(int damage)
     {
-        health -= damage;     
+        if (gameObject.CompareTag("FinalBoss"))
+        {            
+            DataToSaveScript.FinalBossHitCounter_SaveValue++;
+
+            if (finalBossHit == true)
+            {
+                try
+                {
+                    achievmentDisplay.hitTheBoss = true;
+                    achievmentDisplay.NoWeaponBoss();
+                }
+                catch { }
+            }
+           
+        }
+        DataToSaveScript.DamageDealt_SaveValue += damage;
+        audioManager.Play("sound_tomato_death");
+        health -= damage;
+        if (healthBarSlider != null)
+        {            
+            healthBarSlider.value = CalculateHealth();
+        }
+
     }
-    public void SpecialDeath()
+    float CalculateHealth()
     {
-        if (this.name == "Dummy")
-        {
-            ec.dummyCounter++;
-        }       
+        return health / startHealth;
     }
+
+    
 }

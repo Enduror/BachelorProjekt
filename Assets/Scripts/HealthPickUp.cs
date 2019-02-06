@@ -10,7 +10,7 @@ public class HealthPickUp : MonoBehaviour {
 	}
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "PlayerCollider")
         {
             player.startHealth++;
             player.health = player.startHealth;

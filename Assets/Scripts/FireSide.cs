@@ -5,15 +5,38 @@ using UnityEngine;
 public class FireSide : MonoBehaviour {
 
     public GameObject weaponFire;
+    public AchievmentDisplay achievmentDisplay;
+
+    
+    
+    private void Start()
+    {
+        weaponFire = GameObject.Find("FireParticles");
+
+        try
+        {
+            achievmentDisplay = GameObject.FindGameObjectWithTag("HotFork").GetComponent<AchievmentDisplay>();
+        }
+        catch { }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "PlayerCollider")
         {
             collision.GetComponentInParent<PlayerController>().TakeDamage(1);
         }
         if(collision.tag== "Weapon")
         {
-            weaponFire.SetActive(true);
+
+            weaponFire.GetComponent<FireWeapon>().isBurning = true;
+            weaponFire.GetComponent<FireWeapon>().CheckForWeapon();
+            DataToSaveScript.SetTheForkOnFire_SaveValue = true;
+            if (achievmentDisplay != null)
+            {
+                achievmentDisplay.HotFork();
+            }
+
         }
     }
 

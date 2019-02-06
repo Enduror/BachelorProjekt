@@ -5,19 +5,22 @@ using UnityEngine;
 public class GatherWeaponScript : MonoBehaviour {
     public MessageBord message;
     public GameObject player;
+    public AudioManager audioManager;
 
     private void Start()
     {
-        message = FindObjectOfType<MessageBord>();
+        audioManager = FindObjectOfType<AudioManager>();
+        
         player = GameObject.FindGameObjectWithTag("Player");
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "PlayerCollider")
         {
-            player.GetComponentInParent<PlayerController>().ActivateWeapon();
-            message.CloseMessage();
+            audioManager.Play("sound_player_wow");            
+            player.GetComponentInParent<PlayerController>().ActivateWeapon();            
             Destroy(gameObject);
+
 
         }
     }
