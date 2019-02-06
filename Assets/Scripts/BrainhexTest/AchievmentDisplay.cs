@@ -38,12 +38,13 @@ public class AchievmentDisplay : MonoBehaviour {
     
 
     void Start () {
+        player = FindObjectOfType<PlayerController>();
         audioManager = FindObjectOfType<AudioManager>();
         isDone = false;
         puzzleManager = FindObjectOfType<PuzzleManager>();
         achievementIsDone = false;
 
-        player = FindObjectOfType <PlayerController>();
+        
         playerDiedRecently = false;
 
         checkMark.enabled = false;
@@ -57,6 +58,13 @@ public class AchievmentDisplay : MonoBehaviour {
     // The first part activates the Gui and is off after that! 
     private void Update()
     {
+        if (player == null)
+        {
+            player = FindObjectOfType<PlayerController>();
+            puzzleManager = FindObjectOfType<PuzzleManager>();
+        }
+
+
         if (achievment != null && isDone == false)
         {
             isDone = true;
@@ -128,6 +136,8 @@ public class AchievmentDisplay : MonoBehaviour {
 
     public void PuzzleSolver()
     {
+
+        
         if (achievment != null)
         {
 

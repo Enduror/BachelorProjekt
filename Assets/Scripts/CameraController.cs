@@ -15,6 +15,13 @@ public class CameraController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.position = player.position+distanceVector;
+        if (player != null)
+        {
+            transform.position = player.position + distanceVector;
+        }
+        else
+        {
+            player = FindObjectOfType<PlayerController>().GetComponent<Transform>();
+        }
 	}
 }

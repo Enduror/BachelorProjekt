@@ -44,6 +44,7 @@ public class CanvasManager : MonoBehaviour
 
     private void Update()
     {
+        if (player != null) {
         for (int i = 0; i < hearts.Length; i++)
         {
             if (i < player.health)
@@ -61,6 +62,11 @@ public class CanvasManager : MonoBehaviour
             menuePanel.SetActive(true);
         }
 
+        }
+        else
+        {
+            player = FindObjectOfType<PlayerController>();
+        }
     }
 
 }
