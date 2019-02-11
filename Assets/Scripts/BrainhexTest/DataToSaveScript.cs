@@ -102,7 +102,9 @@ public class DataToSaveScript : MonoBehaviour
         if (FinishedTheGame_SaveValue == true && PlayerDeathCounter_SaveValue == 0)
         {
             PerfectRun_SaveValue = true;
-        }        
+        }
+        if (FinishedTheGame_SaveValue)
+            firstTry = true;
         
     }
    
@@ -113,10 +115,10 @@ public class DataToSaveScript : MonoBehaviour
         if (!File.Exists(path))
         {
             
-            File.WriteAllText(path, "PlayerID;Socializer;Achiever;Conqueror;Mastermind;Survivor;Daredevil;Seeker;PrimaryType;SecondaryType;DamageDealt;DamageReceived;PlayerDeathCounter;TotalPlayTime;" +
+            File.WriteAllText(path, "PlayerID;Gruppe;Socializer;Achiever;Conqueror;Mastermind;Survivor;Daredevil;Seeker;PrimaryType;SecondaryType;DamageDealt;DamageReceived;PlayerDeathCounter;TotalPlayTime;" +
                 "NumberOfRestarts;CollectedPickUps;FinalBossSpikeCounter;FinalBossHitCounter;IdleTime;PerfectRun;TimeToFinishGame;BrokeTheGame;MaxSpeed;DamageReceived_Spikes;" +
                 "GatheredHealth;WallHits;VasesDestroyed;EnemiesKilled;FoundSecretlevel;BossKilledWithTraps;PuzzlesSolvedCounter;AllPuzzlesSolved;SetTheForkOnFire;" +
-                "SecretsFoundCounter;BladeRun;SteppedOn5TrapsCounter;AchievementsDoneCounter;AllAchievementsDone;AllLevelsPlayerDied;"+"\n");
+                "SecretsFoundCounter;BladeRun;SteppedOn5TrapsCounter;AchievementsDoneCounter;AllAchievementsDone;\n");
 
         }
 
@@ -131,12 +133,12 @@ public class DataToSaveScript : MonoBehaviour
 
 
 
-        File.AppendAllText(path, PlayerPrefs.GetInt("PlayerID") + ";" + Socializer_SaveValue + ";" + Achiever_SaveValue + ";" + Conqueror_SaveValue+";"+ Mastermind_SaveValue+";"+ Survivor_SaveValue + ";" + Daredevil_SaveValue + ";" + Seeker_SaveValue + ";" + PrimaryType_SaveValue + ";" + SecondaryType_SaveValue + ";" +
-            DamageDealt_SaveValue +";"+DamageReceived_SaveValue+";"+PlayerDeathCounter_SaveValue+";"+TotalPlayTime_SaveValue+";" +NumberOfRestarts_SaveValue+";"+CollectedPickUps_SaveValue+";"+FinalBossSpikeCounter_SaveValue+";"+FinalBossHitCounter_SaveValue+";"+IdleTime_SaveValue+";"+PerfectRun_SaveValue+";"+TimeToFinishGame_SaveValue+";"+BrokeTheGame_SaveValue+";"+MaxSpeed_SaveValue+";"+DamageReceived_Spikes_SaveValue+";" +
-                GatheredHealth_SaveValue+";"+WallHits_SaveValue+";"+VasesDestroyed_SaveValue+";"+EnemiesKilled_SaveValue+";"+FoundSecretlevel_SaveValue+";"+BossKilledWithTraps_SaveValue+";"+PuzzlesSolvedCounter_SaveValue+";"+AllPuzzlesSolved_SaveValue+";"+SetTheForkOnFire_SaveValue+";" +
-               ";"+SecretsFoundCounter_SaveValue+";"+BladeRun_SaveValue+";"+SteppedOnTrapsCounter_SaveValue+";"+AchievementsDoneCounter_SaveValue+";"+AllAchievementsDone_SaveValue+";"+allPlacesPlayerDied+";"+"\n");
-       //PlayerPrefs.SetInt("PlayerID", PlayerPrefs.GetInt("PlayerID") + 1);
-         PlayerPrefs.SetInt("PlayerID", 0);
+        File.AppendAllText(path, PlayerPrefs.GetInt("PlayerID") + ";"+isGroupB+";" + Socializer_SaveValue + ";" + Achiever_SaveValue + ";" + Conqueror_SaveValue+";"+ Mastermind_SaveValue+";"+ Survivor_SaveValue + ";" + Daredevil_SaveValue + ";" + Seeker_SaveValue + ";" + PrimaryType_SaveValue + ";" + SecondaryType_SaveValue + ";" +
+            DamageDealt_SaveValue +";"+DamageReceived_SaveValue+";"+PlayerDeathCounter_SaveValue+";"+TotalPlayTime_SaveValue+";" +NumberOfRestarts_SaveValue+";"+CollectedPickUps_SaveValue+";"+FinalBossSpikeCounter_SaveValue+";"+FinalBossHitCounter_SaveValue+";"+IdleTime_SaveValue+";"+PerfectRun_SaveValue+";"+TimeToFinishGame_SaveValue+";"+BrokeTheGame_SaveValue+";"+MaxSpeed_SaveValue+";"+DamageReceived_Spikes_SaveValue+";"
+                +GatheredHealth_SaveValue+";"+WallHits_SaveValue+";"+VasesDestroyed_SaveValue+";"+EnemiesKilled_SaveValue+";"+FoundSecretlevel_SaveValue+";"+BossKilledWithTraps_SaveValue+";"+PuzzlesSolvedCounter_SaveValue+";"+AllPuzzlesSolved_SaveValue+";"+SetTheForkOnFire_SaveValue+
+               ";"+SecretsFoundCounter_SaveValue+";"+BladeRun_SaveValue+";"+SteppedOnTrapsCounter_SaveValue+";"+AchievementsDoneCounter_SaveValue+";"+AllAchievementsDone_SaveValue+";"+"\n");
+       PlayerPrefs.SetInt("PlayerID", PlayerPrefs.GetInt("PlayerID") + 1);
+         //PlayerPrefs.SetInt("PlayerID", 0);
        
     }
 

@@ -28,10 +28,10 @@ public class FireSide : MonoBehaviour {
         }
         if(collision.tag== "Weapon")
         {
-
-            weaponFire.GetComponent<FireWeapon>().isBurning = true;
-            weaponFire.GetComponent<FireWeapon>().CheckForWeapon();
             DataToSaveScript.SetTheForkOnFire_SaveValue = true;
+
+            weaponFire.GetComponent<FireWeapon>().CheckForWeapon();
+            
             if (achievmentDisplay != null)
             {
                 achievmentDisplay.HotFork();

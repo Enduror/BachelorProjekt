@@ -244,11 +244,16 @@ public class PlayerController : MonoBehaviour {
         }
         transform.position = spawnPoint.transform.position;
         health = startHealth;
+        fireParticles.GetComponent<ParticleSystem>().Stop();
         if (levelCounter <= 5)
         {
             hasWeapon = false;
             fireParticles.GetComponent<FireWeapon>().CheckForWeapon();
             Weapon.SetActive(false);
+            if (DataToSaveScript.SetTheForkOnFire_SaveValue)
+            {
+                fireParticles.GetComponent<ParticleSystem>().Play();
+            }
         }
         
     }

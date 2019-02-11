@@ -12,14 +12,12 @@ public class SceneManagerScript : MonoBehaviour {
     {
         if (saveData.GetComponent<PlayerTypeAchievementSave>().primaryType != "")
         {
-
             DontDestroyOnLoad(saveData);
             SceneManager.LoadScene("Level1");
         }
         else
         {
             Debug.Log("cant load level yet");
-
         }
     }
     

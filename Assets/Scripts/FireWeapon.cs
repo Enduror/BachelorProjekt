@@ -10,7 +10,7 @@ public class FireWeapon : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         playerController = FindObjectOfType<PlayerController>();
-        isBurning = false;
+        
 	}
 	
 	// Update is called once per frame
@@ -22,7 +22,7 @@ public class FireWeapon : MonoBehaviour {
     {
         try
         {
-            if (playerController.hasWeapon == true && isBurning == true)
+            if (playerController.hasWeapon == true && DataToSaveScript.SetTheForkOnFire_SaveValue == true)
             {
                 GetComponent<ParticleSystem>().Play();
             }
@@ -33,7 +33,7 @@ public class FireWeapon : MonoBehaviour {
         }
         catch
         {
-            Debug.Log("problems");
+            
         }
        
         

@@ -51,7 +51,8 @@ public class HealthSystem : MonoBehaviour {
 
         if (health <= 0 && alive)
         {
-            DataToSaveScript.EnemiesKilled_SaveValue++;
+            
+                DataToSaveScript.EnemiesKilled_SaveValue++;
            
             if (gameObject.tag == "FinalBoss")
             {
@@ -85,8 +86,9 @@ public class HealthSystem : MonoBehaviour {
     public void TakeDamage(int damage)
     {
         if (gameObject.CompareTag("FinalBoss"))
-        {            
-            DataToSaveScript.FinalBossHitCounter_SaveValue++;
+        {
+            
+                DataToSaveScript.FinalBossHitCounter_SaveValue++;
 
             if (finalBossHit == true)
             {
@@ -99,7 +101,8 @@ public class HealthSystem : MonoBehaviour {
             }
            
         }
-        DataToSaveScript.DamageDealt_SaveValue += damage;
+        
+            DataToSaveScript.DamageDealt_SaveValue += damage;
         audioManager.Play("sound_tomato_death");
         health -= damage;
         if (healthBarSlider != null)
