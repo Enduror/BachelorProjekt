@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour {
         hasWeapon = false;
         fireParticles.GetComponent<FireWeapon>().CheckForWeapon();
         Weapon.SetActive(false);
-
+        DataToSaveScript.PerfectRun_SaveValue = true;
        
 
        
@@ -196,6 +196,8 @@ public class PlayerController : MonoBehaviour {
 
             DataToSaveScript.LevelPlayerDied_SaveValue.Add(SceneManager.GetActiveScene().name);
             DataToSaveScript.PlayerDeathCounter_SaveValue ++;
+            DataToSaveScript.PerfectRun_SaveValue = false;
+            
             audioManager.StopAll();
 
             audioManager.Play("sound_player_death");
@@ -207,7 +209,6 @@ public class PlayerController : MonoBehaviour {
             }
             catch
             {
-                Debug.Log("DidntWork");
             }
            
             

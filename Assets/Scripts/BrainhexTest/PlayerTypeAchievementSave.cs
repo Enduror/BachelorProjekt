@@ -22,6 +22,7 @@ public class PlayerTypeAchievementSave : MonoBehaviour {
     public InputField seekerValueInput;
 
     public Toggle isRealTest;
+    public Toggle isGroupB;
 
     public playerResults[] playerresults;
 
@@ -51,7 +52,7 @@ public class PlayerTypeAchievementSave : MonoBehaviour {
         DataToSaveScript.Seeker_SaveValue = playerresults[3].value;
 
 
-
+        DataToSaveScript.isGroupB = isGroupB.isOn;
         DataToSaveScript.isRealTest = isRealTest.isOn;
 
     }

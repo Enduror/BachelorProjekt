@@ -38,7 +38,7 @@ public class Bladerunner : MonoBehaviour
     {
         if (collision.tag.Equals("PlayerCollider"))
         {
-            collision.GetComponentInParent<PlayerController>().TakeDamage(100);
+            collision.GetComponentInParent<PlayerController>().TakeDamage(10);
         }
     }
     public void StartMoving()

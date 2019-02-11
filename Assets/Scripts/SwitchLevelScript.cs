@@ -12,6 +12,7 @@ public class SwitchLevelScript : MonoBehaviour {
     public GameObject achievements;
     public AchievmentDisplay achievmentDisplay;
     public AchievmentDisplay speedRunDisplay;
+    public bool firstTime;
 
     public float currentTime;
     public string saveTime;
@@ -25,9 +26,10 @@ public class SwitchLevelScript : MonoBehaviour {
         audioManager =GameObject.FindObjectOfType<AudioManager>();
     }
     void Start () {
+        firstTime = true;
 
         
-        currentTime = 0;
+        currentTime = 45;
 
         achievements = GameObject.FindGameObjectWithTag("Achievements");
         player = GameObject.FindGameObjectWithTag("Player");
@@ -58,7 +60,7 @@ public class SwitchLevelScript : MonoBehaviour {
 
     private void Update()
     {
-        currentTime += Time.deltaTime;
+        currentTime -= Time.deltaTime;
         try
         {
 
@@ -93,20 +95,23 @@ public class SwitchLevelScript : MonoBehaviour {
 
         PlayerPrefs.SetString("Time",saveTime);
 
-        if (speedRunDisplay != null && currentTime <= 60)
+        if (speedRunDisplay != null && currentTime >= 0)
         {
             speedRunDisplay.UnderAMinute();
         }
-        else
-        {
-            Debug.Log("Speedrunisnulll");
-        }
+        
 
         if (levelToLoad == 1)
         {
             player.GetComponent<PlayerController>().levelCounter = 1;
+            player.GetComponent<PuzzleManager>().progress = 0;
+            if (firstTime)
+            {
             DataToSaveScript.TimeToFinishGame_SaveValue = DataToSaveScript.TotalPlayTime_SaveValue;
             DataToSaveScript.FinishedTheGame_SaveValue = true;
+                DataToSaveScript.firstTry = false;
+                firstTime = false;
+            }
         }
         else
         {
@@ -126,11 +131,6 @@ public class SwitchLevelScript : MonoBehaviour {
         }      
           
         SceneManager.LoadScene("Level" + levelToLoad);
-     
-        
-            
-        
-
         yield return new WaitForSeconds(1.5f);
 
     }

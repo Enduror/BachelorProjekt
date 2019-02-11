@@ -307,7 +307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioManager: {fileID: 0}
-  moveSpeed: 3
+  moveSpeed: 6
   chaseRange: 50
   minChaseRange: 0
   player: {fileID: 0}
@@ -332,7 +332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  startHealth: 1
+  startHealth: 5
   ec: {fileID: 0}
   audioManager: {fileID: 0}
   healthPickUp: {fileID: 1298470942005346, guid: f8965c0dd9cc36448ae1dfd14fc57072,

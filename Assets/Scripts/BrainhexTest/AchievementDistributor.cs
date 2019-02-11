@@ -6,6 +6,7 @@ public class AchievementDistributor : MonoBehaviour {
 
     public GameObject[] layout;
 
+    
 
     public Achievement[] randomAchievments;
 
@@ -49,9 +50,12 @@ public class AchievementDistributor : MonoBehaviour {
 
 
 
+
+
     public void SetLayout()
     {
-        
+        if (DataToSaveScript.isGroupB)
+        {
         if (primaryPlayerType == seeker)
         {
             layout[0].GetComponent<AchievmentDisplay>().achievment = seekerAchievements[0];            
@@ -134,6 +138,19 @@ public class AchievementDistributor : MonoBehaviour {
             layout[2].GetComponent<AchievmentDisplay>().achievment = achieverAchievements[0];
         }
 
+        }
+        else
+        {
+           //referenceGroup
+
+            var rng = Random.Range(0, randomAchievments.Length);
+            layout[0].GetComponent<AchievmentDisplay>().achievment = randomAchievments[rng];
+            rng = Random.Range(0, randomAchievments.Length);
+            layout[1].GetComponent<AchievmentDisplay>().achievment = randomAchievments[rng];
+            rng = Random.Range(0, randomAchievments.Length);
+            layout[2].GetComponent<AchievmentDisplay>().achievment = randomAchievments[rng];
+
+        }
 
         // absicherung falls Typ 0 und 2 oder 0 und 1 sich gleichen dann rerole
 
@@ -143,9 +160,21 @@ public class AchievementDistributor : MonoBehaviour {
             {
                 var rng = Random.Range(0, randomAchievments.Length - 2);
                 layout[2].GetComponent<AchievmentDisplay>().achievment = randomAchievments[rng];
+                 Debug.Log("Rerolled3Achievement");
             }
+            if (layout[1].GetComponent<AchievmentDisplay>().achievment.achievementType == layout[2].GetComponent<AchievmentDisplay>().achievment.achievementType || layout[1].GetComponent<AchievmentDisplay>().achievment.achievementType == layout[0].GetComponent<AchievmentDisplay>().achievment.achievementType)
+            {
+                var rng = Random.Range(0, randomAchievments.Length - 2);
+                layout[1].GetComponent<AchievmentDisplay>().achievment = randomAchievments[rng];
+                     Debug.Log("Rerolled2Achievement");
+        }
+            if (layout[0].GetComponent<AchievmentDisplay>().achievment.achievementType == layout[1].GetComponent<AchievmentDisplay>().achievment.achievementType || layout[0].GetComponent<AchievmentDisplay>().achievment.achievementType == layout[2].GetComponent<AchievmentDisplay>().achievment.achievementType)
+             {
+                 var rng = Random.Range(0, randomAchievments.Length - 2);
+                 layout[0].GetComponent<AchievmentDisplay>().achievment = randomAchievments[rng];
+                     Debug.Log("Rerolled1Achievement");
+        }
 
-      
 
     }
 

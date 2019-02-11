@@ -31,9 +31,10 @@ public class Spikes : MonoBehaviour {
     {
         if (collision.tag == "PlayerCollider")
         {
-            DataToSaveScript.SteppedOn5TrapsCounter_SaveValue++;
+            DataToSaveScript.SteppedOnTrapsCounter_SaveValue++;
             anim.SetTrigger("Spike");
             player.GetComponentInParent<PlayerController>().TakeDamage(spikeDamage);
+
             GetComponent<BoxCollider2D>().enabled = false;
             GetComponent<AudioSource>().Play();
             gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.None;

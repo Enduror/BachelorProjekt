@@ -143,7 +143,7 @@ public class PuzzleManager : MonoBehaviour {
         }
         if (progress >= 12 && playerController.levelCounter == 1)
         {
-            progress = 1;
+            progress = 0;
         }
 
         if (playerController.levelCounter == 9)

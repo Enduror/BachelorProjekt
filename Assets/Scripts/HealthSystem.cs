@@ -58,12 +58,17 @@ public class HealthSystem : MonoBehaviour {
                 Instantiate(crown, transform.position, transform.rotation);
                 if (finalBossHit == false)
                 {
-                    achievmentDisplay.NoWeaponBoss();
+                    try
+                    {
+                        achievmentDisplay.NoWeaponBoss();
+                    }
+                    catch{ }
                 }
+                    
             }
             else
             {           
-                var rng = Random.Range(0, 25);
+                var rng = Random.Range(0, 40);
 
                  if (rng <= 1)
                  {

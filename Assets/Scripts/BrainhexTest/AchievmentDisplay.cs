@@ -258,6 +258,7 @@ public class AchievmentDisplay : MonoBehaviour {
         {
             if (playerDiedRecently == true)
             {
+                
                 currentProgress = 0;
                 UpdateGUI();
                 playerDiedRecently = false;
@@ -267,6 +268,10 @@ public class AchievmentDisplay : MonoBehaviour {
                 currentProgress++;
                 UpdateGUI();
                 CheckForProgress();
+                if (currentProgress >= 6)
+                {
+                    DataToSaveScript.SteppedOn5Traps_SaveValue = true;
+                }
             }
         }
     }

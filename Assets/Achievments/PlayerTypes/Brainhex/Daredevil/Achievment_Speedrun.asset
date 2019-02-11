@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d7837fedd031d14b936bf02899cd184, type: 3}
   m_Name: Achievment_Speedrun
   m_EditorClassIdentifier: 
-  questText: Finish 10 levels in under a minute
+  questText: Finish 10 levels in under 45 sek.
   progressText: 1
   currentProgress: 0
   targetProgress: 10

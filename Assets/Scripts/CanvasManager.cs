@@ -13,6 +13,8 @@ public class CanvasManager : MonoBehaviour
     public GameObject hearthContrainer;
     public PlayerController player;
     public Button SaveAllDataButton;
+    public Text timer;
+    public float currentTime;
 
 
     // achievmentPanel 
@@ -38,12 +40,16 @@ public class CanvasManager : MonoBehaviour
     }
     public void Start()
     {
+        currentTime = 45;
 
         player = FindObjectOfType<PlayerController>();
     }
 
     private void Update()
     {
+        TimerText();
+
+
         if (player != null) {
         for (int i = 0; i < hearts.Length; i++)
         {
@@ -66,6 +72,29 @@ public class CanvasManager : MonoBehaviour
         else
         {
             player = FindObjectOfType<PlayerController>();
+        }
+    }
+
+    public void TimerText()
+    {
+        if (currentTime < 10)
+        {
+            timer.color = Color.yellow;
+        }
+        if (currentTime < 5)
+        {
+            timer.color = Color.red;
+        }
+
+        if (currentTime >= 0)
+        {
+            currentTime -= Time.deltaTime;
+            timer.text = Mathf.Round(currentTime).ToString();
+        }
+        else
+        {
+            timer.text = "0";
+            timer.enabled = false;
         }
     }
 
